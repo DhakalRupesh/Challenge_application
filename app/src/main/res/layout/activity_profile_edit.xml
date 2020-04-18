@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ProfileEdit"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:textColor="#192965"
+            android:textSize="36sp"
+            android:fontFamily="@font/roboto"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/roboto"
+            android:textSize="36sp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:layout_marginTop="100dp">
+
+        <EditText
+            android:id="@+id/et_ep_fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:hint="Full Name"
+            />
+
+        <EditText
+            android:id="@+id/et_ep_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/et_ep_fullname"
+            android:hint="Username"
+            />
+        <EditText
+            android:id="@+id/et_ep_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/et_ep_username"
+            android:hint="E-mail"
+            />
+
+        <TextView
+            android:id="@+id/et_ep_info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_ep_email"
+            android:layout_marginTop="20dp"
+            android:text="select image to update"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_ep_profile_Image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/et_ep_info_text"
+            android:src="@drawable/ic_add_photo_24dp" />
+
+        <Button
+            android:id="@+id/btn_ep_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textColor="#fff"
+            android:layout_below="@+id/img_ep_profile_Image"
+            android:layout_marginTop="20dp"
+            android:background="#28A745"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

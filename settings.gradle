@@ -1,0 +1,2 @@
+rootProject.name='Baji'
+include ':app'
