@@ -48,27 +48,29 @@
             />
 
         <EditText
-            android:id="@+id/et_ep_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/et_ep_fullname"
-            android:hint="Username"
-            />
-        <EditText
             android:id="@+id/et_ep_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_below="@+id/et_ep_username"
+            android:layout_below="@id/et_ep_fullname"
             android:hint="E-mail"
             />
+
+        <EditText
+            android:id="@+id/et_ep_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/et_ep_email"
+            android:hint="Username"
+            />
+
 
         <TextView
             android:id="@+id/et_ep_info_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/et_ep_email"
+            android:layout_below="@+id/et_ep_username"
             android:layout_marginTop="20dp"
             android:text="select image to update"/>
 

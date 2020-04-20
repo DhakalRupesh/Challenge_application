@@ -86,6 +86,7 @@ public class Profile extends Fragment {
             public void onResponse(Call<User> call, Response<User> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getActivity(), "Code " + response.code(), Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "onResponse: imageError" + response.code());
                     return;
                 }
 
