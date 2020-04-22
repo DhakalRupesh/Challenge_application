@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:layout_rowWeight="1"
+    app:cardElevation="5dp"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="12dp"
+    android:alignmentMode="alignMargins"
+    android:columnOrderPreserved="false"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/img_game_image"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintCircleRadius="12dp"
+            app:riv_corner_radius="12dip"
+            android:src="@drawable/fortnite" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Challenger : "
+                android:textSize="15sp"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/tv_challengerName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="15sp"
+                android:text="name"
+                android:textColor="@color/colorBlack" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="15sp"
+                android:text="Game : "
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/tv_GameName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="15sp"
+                android:text="name"
+                android:textColor="@color/colorBlack" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="15sp"
+                android:text="BP : "
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/tv_BP"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="15sp"
+                android:text="name"
+                android:textColor="@color/colorBlack" />
+
+        </LinearLayout>
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_view_challenge_detail"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="Details"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/btnGreen" />-->
+
+        <ImageView
+            android:id="@+id/imgViewDetails"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/next64"
+            android:layout_gravity="end"
+            />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

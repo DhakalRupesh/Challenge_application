@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.AddChallenge">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_topINfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorText"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Challenge"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorText"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/ll_topINfo"
+            android:layout_marginTop="60dp">
+
+            <EditText
+                android:id="@+id/et_challenge_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Challenge Type"
+                />
+
+            <EditText
+                android:id="@+id/et_challenge_point"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Challenge point"
+                android:inputType="number"
+                android:layout_marginTop="20dp"
+                />
+
+            // date and time
+            <EditText
+                android:id="@+id/et_challenge_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Challenge Date"
+                android:clickable="true"
+                android:editable="false"
+                android:focusable="false"
+                android:layout_marginTop="20dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_challenge_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Challenge Time"
+                android:clickable="true"
+                android:editable="false"
+                android:focusable="false"
+                android:layout_marginTop="20dp"
+                />
+
+            <EditText
+                android:id="@+id/et_challenge_Desc"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:hint="Challenge Description"
+                android:inputType="textMultiLine"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                android:id="@+id/et_ep_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_ep_username"
+                android:layout_marginTop="20dp"
+                android:text="select challenged game image"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_ac_challenge_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/add_image" />
+
+            <Button
+                android:id="@+id/btn_ac_addChallenge"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:text="Add Challenge"
+                android:textAllCaps="false"
+                android:layout_marginTop="20dp"
+                android:background="@color/btnGreen"
+                android:textColor="#ffffff"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

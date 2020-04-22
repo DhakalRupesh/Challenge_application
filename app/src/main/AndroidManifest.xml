@@ -14,21 +14,23 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
-        android:requestLegacyExternalStorage="true">
-        <activity android:name=".activities.ProfileEdit"></activity>
-        <activity android:name=".activities.Bottom_nav"></activity>
-        <activity android:name=".activities.Signup" />
-        <activity android:name=".activities.Login">
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activities.AddChallenge">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.ChallengeDetail" />
+        <activity android:name=".activities.ProfileEdit" />
+        <activity android:name=".activities.Bottom_nav"></activity>
+        <activity android:name=".activities.Signup" />
+        <activity android:name=".activities.Login" />
         <activity android:name=".activities.SplashScreen" />
 
         <meta-data

@@ -4,9 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.Home">
+    tools:context=".fragments.Home"
+    android:orientation="vertical">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp">
+
+        <LinearLayout
+            android:id="@+id/ll_info1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Play"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorText"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="to earn"
+                    android:textStyle="bold"
+                    android:textSize="36sp"
+                    android:textColor="@color/colorText"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Earn points and redeem it "
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="10sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="for the cash"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="2sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
 
+            </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_addBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/ll_info1"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="13dp"
+
+            >
+
+            <Button
+                android:id="@+id/btn_home_addChallenge"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:text="New Challenge"
+                android:textAllCaps="false"
+                android:background="@color/btnGreen"
+                android:textColor="#ffffff"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_home_challengeinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_addBtn"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="18dp"
+            android:textColor="@color/colorBlack"
+            android:text="Choose a challenge to get started"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_challenge_card"
+            android:layout_below="@+id/tv_home_challengeinfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
 
 </ScrollView>

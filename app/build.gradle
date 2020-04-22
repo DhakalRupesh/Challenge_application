@@ -44,6 +44,8 @@ dependencies {
 
     //circle image view
     implementation 'de.hdodenhof:circleimageview:3.0.2'
+    //rounded image view
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
     // material design
     implementation 'com.google.android.material:material:1.0.0'

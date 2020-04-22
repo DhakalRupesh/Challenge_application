@@ -7,4 +7,6 @@
     <color name="colorBlack">#000000</color>
     <color name="colorInputGray">#E8EBEC</color>
     <color name="updated">#E62DDB63</color>
+    <color name="colorText">#192965</color>
+    <color name="btnGreen">#28A745</color>
 </resources>
