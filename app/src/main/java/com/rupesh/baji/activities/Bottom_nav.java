@@ -113,6 +113,7 @@ public class Bottom_nav extends AppCompatActivity {
     }
 
     public void GetLoggedUserData(){
+
         Useri useri = Url.getInstance().create(Useri.class);
         Call<User> userCall = useri.getme(Url.token);
 

@@ -6,10 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -17,8 +21,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rupesh.baji.R;
+import com.rupesh.baji.activities.AcceptedChallenge;
 import com.rupesh.baji.activities.Login;
 import com.rupesh.baji.activities.ProfileEdit;
+import com.rupesh.baji.activities.YourChallenge;
 import com.rupesh.baji.api.Useri;
 import com.rupesh.baji.model.User;
 import com.rupesh.baji.url.Url;
@@ -36,6 +42,8 @@ public class Profile extends Fragment {
     ImageView imgLogout, imgProfile, imgEditProfile;
     TextView tvUsername, tvBP;
 
+    TextView tv_Your_Challenge, tv_Accepted_Challenge, tv_redeem_Cash;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +56,18 @@ public class Profile extends Fragment {
 
             tvUsername = view.findViewById(R.id.tv_profile_username);
             tvBP = view.findViewById(R.id.tv_profile_game_points);
+
+            tv_Your_Challenge = view.findViewById(R.id.tv_pro_Your_Challenge);
+            tv_Accepted_Challenge = view.findViewById(R.id.tv_pro_Your_Accepted_Challenge);
+            tv_redeem_Cash = view.findViewById(R.id.tv_profile_redeem_cash);
+
+            tv_Accepted_Challenge.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent goToAcceptedChallenge = new Intent(getContext(), AcceptedChallenge.class);
+                    startActivity(goToAcceptedChallenge);
+                }
+            });
 
             imgProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -76,6 +96,7 @@ public class Profile extends Fragment {
 
         return view;
     }
+
 
     private void LoadUserData(final View view) {
         Useri useri = Url.getInstance().create(Useri.class);

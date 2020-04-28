@@ -5,6 +5,7 @@ import com.rupesh.baji.serverresponse.ImageResponse;
 import com.rupesh.baji.serverresponse.UserResponse;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -26,7 +27,7 @@ public interface Useri {
 
     @Multipart
     @POST("/uploads")
-    Call<ImageResponse> uploadImage(@Part MultipartBody.Part img);
+    Call<ImageResponse> uploadImage(@Part MultipartBody.Part img, @Header("Authorization") String token);
 
     @GET("user/retriveme")
     Call<User> getme(@Header("Authorization") String token);

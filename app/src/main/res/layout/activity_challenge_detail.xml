@@ -6,8 +6,243 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.ChallengeDetail"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20dp">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Challenge"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorText"/>
+
+    <TextView
+        android:id="@+id/tv_details_chID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/colorBlack" />
+
+
+    <ImageView
+        android:id="@+id/img_details_ch_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fortnite" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Challenger : "
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/tv_details_challenger"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:text="name"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Challenge Type : "
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/tv_details_chType"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:text="name"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Challenge Game : "
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/tv_details_chGame"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:text="name"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Challenge BP : "
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/tv_details_chBP"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:text="name"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Description : "
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/tv_details_chDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:text="I am challenging for teamdeathmatch for
+                           the highest kills in best of 3 round."
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Challenge Time : "
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/tv_details_chTime"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:text="name"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Challenge Date : "
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/tv_details_Date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:text="name"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/btn_details_acceptChallenge"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:text="Accept Challenge"
+            android:elevation="10dp"
+            android:textAllCaps="false"
+            android:background="@color/btnGreen"
+            android:textColor="#ffffff"/>
+
+    </LinearLayout>
 
 </LinearLayout>

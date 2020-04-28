@@ -17,25 +17,43 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.rupesh.baji.R;
+import com.rupesh.baji.api.Challengei;
+import com.rupesh.baji.model.Challenge;
+import com.rupesh.baji.model.User;
+import com.rupesh.baji.serverresponse.ImageResponse;
+import com.rupesh.baji.strictmode.StrictModeClass;
+import com.rupesh.baji.url.Url;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class AddChallenge extends AppCompatActivity {
 
-    EditText et_ch_type, et_ch_point, et_ch_date, et_ch_time, et_ch_Description;
+    EditText et_ch_type, et_ch_game, et_ch_point, et_ch_date, et_ch_time, et_ch_Description;
     ImageView img_ch_image;
     Button btnAddChallenge;
+    TextView tvBPPoints;
     final Calendar myCalendar = Calendar.getInstance();
     TimePickerDialog mTimePicker;
     int hour = myCalendar.get(Calendar.HOUR_OF_DAY);
     int minute = myCalendar.get(Calendar.MINUTE);
     String imagePath;
+    private String imageName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +61,7 @@ public class AddChallenge extends AppCompatActivity {
         setContentView(R.layout.activity_add_challenge);
 
         et_ch_type = findViewById(R.id.et_challenge_type);
+        et_ch_game = findViewById(R.id.et_challenge_game);
         et_ch_point = findViewById(R.id.et_challenge_point);
         et_ch_date = findViewById(R.id.et_challenge_date);
         et_ch_time = findViewById(R.id.et_challenge_time);
@@ -51,6 +70,9 @@ public class AddChallenge extends AppCompatActivity {
         img_ch_image = findViewById(R.id.img_ac_challenge_image);
 
         btnAddChallenge = findViewById(R.id.btn_ac_addChallenge);
+
+        tvBPPoints = findViewById(R.id.tv_ac_bp);
+        tvBPPoints.setText(Bottom_nav.user.getAmt());
 
         // date picker
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -102,10 +124,20 @@ public class AddChallenge extends AppCompatActivity {
                         Toast.makeText(AddChallenge.this, "Please select an image", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    saveImageOnly();
+                    addNewChallenge();
                 }
             }
         });
 
+    }
+
+    // initialize date in text box and format of date
+    private void updateLabelDate() {
+        String myFormat = "MM/dd/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        et_ch_date.setText(sdf.format(myCalendar.getTime()));
     }
 
     private void BrowseImage() {
@@ -122,9 +154,11 @@ public class AddChallenge extends AppCompatActivity {
                 Toast.makeText(AddChallenge.this, "Please select an image ", Toast.LENGTH_SHORT).show();
             }
         }
-        Uri uri = data.getData();
-        img_ch_image.setImageURI(uri);
-        imagePath = getRealPathFromUri(uri);
+        else {
+            Uri uri = data.getData();
+            img_ch_image.setImageURI(uri);
+            imagePath = getRealPathFromUri(uri);
+        }
     }
 
     private String getRealPathFromUri(Uri uri) {
@@ -138,12 +172,69 @@ public class AddChallenge extends AppCompatActivity {
         return result;
     }
 
-    // initialize date in text box and format of date
-    private void updateLabelDate() {
-        String myFormat = "MM/dd/yy"; //In which you need put here
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+    public void saveImageOnly() {
+        File file = new File(imagePath);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("imageFile", file.getName(), requestBody);
 
-        et_ch_date.setText(sdf.format(myCalendar.getTime()));
+        Challengei challengei = Url.getInstance().create(Challengei.class);
+        Call<ImageResponse> responseBodyCall = challengei.uploadChallengeImage(body);
+
+        StrictModeClass.StrictMode();
+
+        try {
+            Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
+            imageName = imageResponseResponse.body().getFilename();
+        } catch (IOException e) {
+            Toast.makeText(AddChallenge.this, "Error", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
+    public void addNewChallenge(){
+        User ChallengeBy = new User(Bottom_nav.user.get_id());
+        String ChallengeType = et_ch_type.getText().toString().trim();
+        String ChallengeGame = et_ch_game.getText().toString().trim();
+        String ChallengePoint = et_ch_point.getText().toString().trim();
+        String ChallengeDate = et_ch_date.getText().toString().trim();
+        String ChallengeTime = et_ch_time.getText().toString().trim();
+        String ChallengeDesc = et_ch_Description.getText().toString().trim();
+        String Status = "false";
+
+        Challenge myChallenge = new Challenge(
+                ChallengeType,
+                ChallengeBy,
+                ChallengeGame,
+                ChallengePoint,
+                ChallengeDate,
+                ChallengeTime,
+                ChallengeDesc,
+                imageName,
+                Status);
+
+        Challengei mychallengei = Url.getInstance().create(Challengei.class);
+        Call<Void> callChallenge = mychallengei.addChallenge(myChallenge);
+        callChallenge.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(AddChallenge.this, "Your Challenge is posted successfully", Toast.LENGTH_SHORT).show();
+//                ClearField();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(AddChallenge.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void ClearField() {
+        et_ch_type.setText("");
+        et_ch_game.setText("");
+        et_ch_point.setText("");
+        et_ch_date.setText("");
+        et_ch_time.setText("");
+        et_ch_Description.setText("");
     }
 
     private boolean checkEmpty() {

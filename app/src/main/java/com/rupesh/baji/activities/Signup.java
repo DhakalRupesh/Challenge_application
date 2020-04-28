@@ -63,7 +63,7 @@ public class Signup extends AppCompatActivity {
         String email = etEmail.getText().toString();
         String username = etUsername.getText().toString();
         String password = etPassword.getText().toString();
-        String gamepoint = "win a game to earn BP";
+        String gamepoint = "20";
 
         User user = new User(fullname, email, username, password, gamepoint, imageName);
 

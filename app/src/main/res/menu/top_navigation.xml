@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/top_nav_Logout"
+        android:icon="@drawable/logout24"
+        android:title="Your Challenge"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/top_nav_yourChallenge"
+        android:icon="@drawable/target"
+        android:title="Your Challenge"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/top_nav_acceptedChallenge"
+        android:icon="@drawable/target"
+        android:title="Accepted Challenge"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/top_nav_recent"
+        android:icon="@drawable/ic_replay_black_24dp"
+        android:title="Recent"
+        app:showAsAction="never"
+        />
+
+</menu>

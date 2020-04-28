@@ -43,6 +43,7 @@ public class ProfileEdit extends AppCompatActivity {
     Button btnUpdate;
     private String imageName = Bottom_nav.user.getProImg();
     private ImageView imgProfile;
+    private static final String TAG = "UpdateProfile";
     String imagePath;
 //    private String imageName = "";
 
@@ -92,6 +93,7 @@ public class ProfileEdit extends AppCompatActivity {
     }
 
     private void UpdateUserInfo() {
+        android.util.Log.e(TAG, "updateProfile image: " + imageName);
         String fullname = etFullname.getText().toString().trim();
         String Email = etEmail.getText().toString().trim();
         String Username = etUsername.getText().toString().trim();
@@ -109,14 +111,9 @@ public class ProfileEdit extends AppCompatActivity {
                     return;
                 }
 
-                Intent intentProfile = new Intent(ProfileEdit.this, Bottom_nav.class);
-                startActivity(intentProfile);
-//                Snackbar snackbar = Snackbar.make(btnUpdate, "Profile updated", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null);
-//
-//                snackbar.getView().setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.updated));
-//                snackbar.show();
-                finish();
+//                Intent intentProfile = new Intent(ProfileEdit.this, Bottom_nav.class);
+//                startActivity(intentProfile);
+                Toast.makeText(ProfileEdit.this, "Profile Updated", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -141,11 +138,10 @@ public class ProfileEdit extends AppCompatActivity {
                 Toast.makeText(this, "Please select an image ", Toast.LENGTH_SHORT).show();
             }
         } else {
-            return;
+            Uri uri = data.getData();
+            imgProfile.setImageURI(uri);
+            imagePath = getRealPathFromUri(uri);
         }
-        Uri uri = data.getData();
-        imgProfile.setImageURI(uri);
-        imagePath = getRealPathFromUri(uri);
     }
 
     private String getRealPathFromUri(Uri uri) {
@@ -167,14 +163,14 @@ public class ProfileEdit extends AppCompatActivity {
                 file.getName(), requestBody);
 
         Useri usersAPI = Url.getInstance().create(Useri.class);
-        Call<ImageResponse> responseBodyCall = usersAPI.uploadImage(body);
+        Call<ImageResponse> responseBodyCall = usersAPI.uploadImage(body, Url.token);
 
         ImgStrictMode.ImgMode();
 
         try {
             Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
             assert imageResponseResponse.body() != null;
-//            imageName = imageResponseResponse.body().getFilename();
+            imageName = imageResponseResponse.body().getFilename();
         } catch (IOException e) {
             Toast.makeText(this, "Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();

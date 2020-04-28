@@ -19,18 +19,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.AddChallenge">
+        <activity android:name=".activities.AcceptedChallenge"></activity>
+        <activity android:name=".activities.YourChallenge" />
+        <activity android:name=".activities.AddChallenge" />
+        <activity android:name=".activities.ChallengeDetail" />
+        <activity android:name=".activities.ProfileEdit" />
+        <activity android:name=".activities.Bottom_nav" />
+        <activity android:name=".activities.Signup" />
+        <activity android:name=".activities.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ChallengeDetail" />
-        <activity android:name=".activities.ProfileEdit" />
-        <activity android:name=".activities.Bottom_nav"></activity>
-        <activity android:name=".activities.Signup" />
-        <activity android:name=".activities.Login" />
         <activity android:name=".activities.SplashScreen" />
 
         <meta-data
