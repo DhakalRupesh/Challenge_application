@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"/>
 
         <ImageView
-            android:id="@+id/img_game_image"
+            android:id="@+id/img_accepted_game_image"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:scaleType="centerCrop"
@@ -47,7 +47,7 @@
                 android:textColor="@color/colorBlack" />
 
             <TextView
-                android:id="@+id/tv_challengerName"
+                android:id="@+id/tv_accepted_challengerName"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="15sp"
@@ -71,7 +71,7 @@
                 android:textColor="@color/colorBlack" />
 
             <TextView
-                android:id="@+id/tv_GameName"
+                android:id="@+id/tv_accepted_GameName"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="name"
@@ -96,7 +96,7 @@
                 android:textColor="@color/colorBlack" />
 
             <TextView
-                android:id="@+id/tv_BP"
+                android:id="@+id/tv_accepted_BP"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="15sp"
@@ -105,16 +105,26 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imgViewDetails"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+<!--        <ImageView-->
+<!--            android:id="@+id/img_accepted_delete"-->
+<!--            android:layout_width="28dp"-->
+<!--            android:layout_height="28dp"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:src="@drawable/ic_delete_black_24dp"-->
+<!--            android:clickable="true"-->
+<!--            android:elevation="10dp"-->
+<!--            android:layout_gravity="end"-->
+<!--            />-->
+
+        <Button
+            android:id="@+id/btn_accepted_Challenge_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Result"
             android:layout_marginRight="10dp"
-            android:src="@drawable/next64"
-            android:clickable="true"
-            android:elevation="10dp"
-            android:layout_gravity="end"
-            />
+            android:backgroundTint="@color/btnGreen"
+            android:textColor="#fff"
+            android:layout_gravity="end"/>
 
     </LinearLayout>
 

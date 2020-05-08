@@ -90,7 +90,8 @@
             android:textColor="#fff"
             android:layout_below="@+id/img_ep_profile_Image"
             android:layout_marginTop="20dp"
-            android:background="#28A745"/>
+            android:textAllCaps="false"
+            android:backgroundTint="@color/btnGreen"/>
 
     </RelativeLayout>
 

@@ -237,10 +237,10 @@
             android:id="@+id/btn_details_acceptChallenge"
             android:layout_width="115dp"
             android:layout_height="wrap_content"
-            android:text="Accept Challenge"
+            android:text="Accept"
             android:elevation="10dp"
             android:textAllCaps="false"
-            android:background="@color/btnGreen"
+            android:backgroundTint="@color/btnGreen"
             android:textColor="#ffffff"/>
 
     </LinearLayout>

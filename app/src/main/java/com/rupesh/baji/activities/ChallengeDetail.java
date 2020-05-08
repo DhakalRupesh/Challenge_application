@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.rupesh.baji.R;
 import com.rupesh.baji.api.Challengei;
 import com.rupesh.baji.model.Challenge;
+import com.rupesh.baji.model.User;
 import com.rupesh.baji.url.Url;
 
 import retrofit2.Call;
@@ -52,7 +53,8 @@ public class ChallengeDetail extends AppCompatActivity {
             public void onClick(View v) {
                 String challenge_id = tvChid.getText().toString();
                 String status = "true";
-                Challenge updateChallenge = new Challenge( Bottom_nav.user.get_id(), status);
+                User ChallengeAcceptedBy = new User(Bottom_nav.user.get_id());
+                Challenge updateChallenge = new Challenge( ChallengeAcceptedBy, status);
                 Challengei challengei = Url.getInstance().create(Challengei.class);
                 Call<Void> challengeVoidCall = challengei.updateChallengeStatus(challenge_id, updateChallenge);
 

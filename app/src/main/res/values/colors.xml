@@ -9,4 +9,6 @@
     <color name="updated">#E62DDB63</color>
     <color name="colorText">#192965</color>
     <color name="btnGreen">#28A745</color>
+    <color name="colorError">#B00020</color>
+
 </resources>

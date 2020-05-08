@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingRight="25dp"
+    android:paddingLeft="25dp"
+    android:paddingBottom="25dp"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Won By ?"
+        android:layout_marginTop="10dp"/>
+
+    <RadioGroup
+        android:id="@+id/rdogrp_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rdo_res_opponent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#757575"
+            android:checked="true"
+            android:text="Opponent"/>
+
+        <RadioButton
+            android:id="@+id/rdo_res_you"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#757575"
+            android:text="You"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/et_ep_info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_ep_username"
+        android:layout_marginTop="15dp"
+        android:text="upload proofing image"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_res_proof_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/et_ep_info_text"
+        android:src="@drawable/ic_add_photo_24dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_ep_username"
+            android:layout_marginTop="2dp"
+            android:text="Note "
+            android:textColor="@color/colorError"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_ep_username"
+            android:layout_marginTop="2dp"
+            android:text="opponent should verify the result"
+            android:textColor="@color/colorBlack"/>
+    </LinearLayout>
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_res_post"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Post"-->
+<!--        android:textColor="#fff"-->
+<!--        android:layout_below="@+id/img_ep_profile_Image"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:backgroundTint="@color/btnGreen"/>-->
+
+
+
+</LinearLayout>
