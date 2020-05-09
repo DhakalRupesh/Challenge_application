@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -26,6 +27,8 @@ import com.rupesh.baji.activities.Login;
 import com.rupesh.baji.activities.ProfileEdit;
 import com.rupesh.baji.activities.YourChallenge;
 import com.rupesh.baji.api.Useri;
+import com.rupesh.baji.helper.ChallengeDialog;
+import com.rupesh.baji.helper.RedeemDialog;
 import com.rupesh.baji.model.User;
 import com.rupesh.baji.url.Url;
 import com.squareup.picasso.Picasso;
@@ -66,6 +69,14 @@ public class Profile extends Fragment {
                 public void onClick(View v) {
                     Intent goToAcceptedChallenge = new Intent(getContext(), AcceptedChallenge.class);
                     startActivity(goToAcceptedChallenge);
+                }
+            });
+
+            tv_redeem_Cash.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    RedeemDialog redeemDialog = new RedeemDialog();
+                    redeemDialog.show(getActivity().getSupportFragmentManager(), "Redeem using Pay Pal");
                 }
             });
 

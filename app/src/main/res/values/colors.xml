@@ -10,5 +10,6 @@
     <color name="colorText">#192965</color>
     <color name="btnGreen">#28A745</color>
     <color name="colorError">#B00020</color>
+    <color name="colorSuccess">#00796B</color>
 
 </resources>

@@ -2,6 +2,7 @@ package com.rupesh.baji.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,18 +65,17 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
             @Override
             public void onClick(View v) {
                 openChallengeDialog();
-                Intent passId = new Intent(mContext, ChallengeDialog.class);
-
-                User user;
-                user = challenge.getChAcceptedby();
-
-                passId.putExtra("chID", challenge.get_id());
-                passId.putExtra("acceptedBY", user.get_id());
-
             }
 
             private void openChallengeDialog() {
+                Bundle args = new Bundle();
+                User user;
+                user = challenge.getChAcceptedby();
+                args.putString("chID", challenge.get_id());
+                args.putString("acceptedBY", user.get_id());
+
                 ChallengeDialog challengeDialog = new ChallengeDialog();
+                challengeDialog.setArguments(args);
                 challengeDialog.show(((AppCompatActivity) mContext).getSupportFragmentManager(), "challenge dialog");
             }
         });

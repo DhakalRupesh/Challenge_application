@@ -35,6 +35,11 @@ public class User {
         this.proImg = proImg;
     }
 
+    public User(String fname, String amt) {
+        this.fname = fname;
+        this.amt = amt;
+    }
+
     public User(String _id){
         this._id = _id;
     }
