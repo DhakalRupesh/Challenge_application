@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -47,7 +46,6 @@ public class AddChallenge extends AppCompatActivity {
     EditText et_ch_type, et_ch_game, et_ch_point, et_ch_date, et_ch_time, et_ch_Description;
     ImageView img_ch_image;
     Button btnAddChallenge;
-    TextView tvBPPoints;
     final Calendar myCalendar = Calendar.getInstance();
     TimePickerDialog mTimePicker;
     int hour = myCalendar.get(Calendar.HOUR_OF_DAY);
@@ -70,9 +68,6 @@ public class AddChallenge extends AppCompatActivity {
         img_ch_image = findViewById(R.id.img_ac_challenge_image);
 
         btnAddChallenge = findViewById(R.id.btn_ac_addChallenge);
-
-        tvBPPoints = findViewById(R.id.tv_ac_bp);
-        tvBPPoints.setText(Bottom_nav.user.getAmt());
 
         // date picker
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -125,7 +120,9 @@ public class AddChallenge extends AppCompatActivity {
                         return;
                     }
                     saveImageOnly();
-                    addNewChallenge();
+                    if(checkBp()){
+                        addNewChallenge();
+                    }
                 }
             }
         });
@@ -257,6 +254,23 @@ public class AddChallenge extends AppCompatActivity {
         if(et_ch_Description.getText().toString().trim().isEmpty()){
             et_ch_time.setError("this field is required");
             return false;
+        }
+        return true;
+    }
+
+    private boolean checkBp(){
+        int number  = Integer.parseInt(Bottom_nav.user.getAmt());
+        try {
+            if(number < Integer.parseInt(et_ch_point.getText().toString())){
+                et_ch_point.setError("You don't have " + et_ch_point.getText().toString() + " points");
+                Toast.makeText(this, "You don't have enough points", Toast.LENGTH_SHORT).show();
+                return false;
+            }if(Integer.parseInt(et_ch_point.getText().toString()) == 0) {
+                et_ch_point.setError("You can't enter 0 points");
+                return false;
+            }
+        } catch (NumberFormatException ex){
+
         }
         return true;
     }

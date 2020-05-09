@@ -55,6 +55,7 @@ public class ChallengeDetail extends AppCompatActivity {
                 String status = "true";
                 User ChallengeAcceptedBy = new User(Bottom_nav.user.get_id());
                 Challenge updateChallenge = new Challenge( ChallengeAcceptedBy, status);
+
                 Challengei challengei = Url.getInstance().create(Challengei.class);
                 Call<Void> challengeVoidCall = challengei.updateChallengeStatus(challenge_id, updateChallenge);
 

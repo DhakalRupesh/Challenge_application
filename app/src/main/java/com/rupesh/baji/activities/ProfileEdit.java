@@ -75,7 +75,6 @@ public class ProfileEdit extends AppCompatActivity {
 //                    Toast.makeText(ProfileEdit.this, "Please select an image", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
-                saveImageOnly();
                 UpdateUserInfo();
                 getUser();
             }

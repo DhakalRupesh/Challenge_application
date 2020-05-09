@@ -1,20 +1,34 @@
 package com.rupesh.baji.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.content.CursorLoader;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rupesh.baji.R;
 import com.rupesh.baji.api.Useri;
 import com.rupesh.baji.model.User;
+import com.rupesh.baji.serverresponse.ImageResponse;
+import com.rupesh.baji.strictmode.StrictModeClass;
 import com.rupesh.baji.url.Url;
 
+import java.io.File;
+import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,6 +40,8 @@ public class Signup extends AppCompatActivity {
     EditText etFullname, etEmail, etUsername, etPassword;
     Button btnSignUp;
     TextView gt_login;
+    private ImageView imgProfile;
+    String imagePath;
     private String imageName = "";
 
     @Override
@@ -37,6 +53,8 @@ public class Signup extends AppCompatActivity {
         etEmail = findViewById(R.id.et_email);
         etUsername = findViewById(R.id.et_username);
         etPassword = findViewById(R.id.et_password);
+
+        imgProfile = findViewById(R.id.img_register_profile_Image);
 
         btnSignUp = findViewById(R.id.btn_signup);
 
@@ -53,7 +71,21 @@ public class Signup extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RegisterUser();
+                if(CheckEmpty()){
+                    if(imagePath == null){
+                        Toast.makeText(Signup.this, "Please select an image", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    saveImageOnly();
+                    RegisterUser();
+                }
+            }
+        });
+
+        imgProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BrowseImage();
             }
         });
     }
@@ -89,5 +121,75 @@ public class Signup extends AppCompatActivity {
                 Toast.makeText(Signup.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void BrowseImage() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent, 0);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            if (data == null) {
+                Toast.makeText(this, "Please select an image ", Toast.LENGTH_SHORT).show();
+            }
+        }
+        Uri uri = data.getData();
+        imgProfile.setImageURI(uri);
+        imagePath = getRealPathFromUri(uri);
+    }
+
+    private String getRealPathFromUri(Uri uri) {
+        String[] projection = {MediaStore.Images.Media.DATA};
+        CursorLoader loader = new CursorLoader(getApplicationContext(),
+                uri, projection, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+        int colIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        String result = cursor.getString(colIndex);
+        cursor.close();
+        return result;
+    }
+
+    private void saveImageOnly() {
+        File file = new File(imagePath);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("imageFile",
+                file.getName(), requestBody);
+
+        Useri usersAPI = Url.getInstance().create(Useri.class);
+        Call<ImageResponse> responseBodyCall = usersAPI.registerImage(body);
+
+        StrictModeClass.StrictMode();
+
+        try {
+            Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
+            imageName = imageResponseResponse.body().getFilename();
+//            Toast.makeText(this, "Image inserted" + imageName, Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            Toast.makeText(this, "Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
+    public boolean CheckEmpty(){
+        if(etFullname.getText().toString().trim().isEmpty()){
+            etFullname.setError("Empty field!!");
+            return false;
+        } if (etEmail.getText().toString().trim().isEmpty()) {
+            etEmail.setError("Empty field!!");
+            return false;
+        } if (etUsername.getText().toString().trim().isEmpty()) {
+            etUsername.setError("Empty field!!");
+            return false;
+        } if (etPassword.getText().toString().trim().isEmpty()) {
+            etPassword.setError("Empty field!!");
+            return false;
+        }
+        return true;
     }
 }

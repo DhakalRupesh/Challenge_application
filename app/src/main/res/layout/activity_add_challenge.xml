@@ -144,11 +144,6 @@
                 android:background="@color/btnGreen"
                 android:textColor="#ffffff"/>
 
-            <TextView
-                android:id="@+id/tv_ac_bp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="bp"/>
 
         </LinearLayout>
 

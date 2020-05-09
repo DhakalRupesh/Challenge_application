@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="30dp"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="140dp">
 
         <EditText
             android:id="@+id/et_ep_fullname"
@@ -72,14 +72,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/et_ep_username"
             android:layout_marginTop="20dp"
+            android:visibility="gone"
             android:text="select image to update"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_ep_profile_Image"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="2dp"
             android:layout_below="@+id/et_ep_info_text"
+            android:layout_marginTop="2dp"
+            android:visibility="gone"
             android:src="@drawable/ic_add_photo_24dp" />
 
         <Button

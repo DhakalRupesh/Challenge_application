@@ -34,4 +34,8 @@ public interface Useri {
 
     @PUT("user/updateme")
     Call<User> updateProfile(@Header("Authorization") String token, @Body User user);
+
+    @Multipart
+    @POST("/uploads")
+    Call<ImageResponse> registerImage(@Part MultipartBody.Part img);
 }
