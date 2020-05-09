@@ -51,30 +51,32 @@ public class ChallengeDetail extends AppCompatActivity {
         btnAcceptChallenge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String challenge_id = tvChid.getText().toString();
-                String status = "true";
-                User ChallengeAcceptedBy = new User(Bottom_nav.user.get_id());
-                Challenge updateChallenge = new Challenge( ChallengeAcceptedBy, status);
+                if (checkBp()) {
+                    String challenge_id = tvChid.getText().toString();
+                    String status = "true";
+                    User ChallengeAcceptedBy = new User(Bottom_nav.user.get_id());
+                    Challenge updateChallenge = new Challenge(ChallengeAcceptedBy, status);
 
-                Challengei challengei = Url.getInstance().create(Challengei.class);
-                Call<Void> challengeVoidCall = challengei.updateChallengeStatus(challenge_id, updateChallenge);
+                    Challengei challengei = Url.getInstance().create(Challengei.class);
+                    Call<Void> challengeVoidCall = challengei.updateChallengeStatus(challenge_id, updateChallenge);
 
-                challengeVoidCall.enqueue(new Callback<Void>() {
-                    @Override
-                    public void onResponse(Call<Void> call, Response<Void> response) {
-                        if (!response.isSuccessful()) {
-                            Toast.makeText(ChallengeDetail.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
-                            return;
+                    challengeVoidCall.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (!response.isSuccessful()) {
+                                Toast.makeText(ChallengeDetail.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+                            Toast.makeText(ChallengeDetail.this, "accepted", Toast.LENGTH_SHORT).show();
                         }
 
-                        Toast.makeText(ChallengeDetail.this, "accepted", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onFailure(Call<Void> call, Throwable t) {
-                        Toast.makeText(ChallengeDetail.this, "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            Toast.makeText(ChallengeDetail.this, "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
         });
     }
@@ -112,5 +114,19 @@ public class ChallengeDetail extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Cant get this item", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private boolean checkBp(){
+        int number  = Integer.parseInt(Bottom_nav.user.getAmt());
+        try {
+            if(number < Integer.parseInt(tvChBP.getText().toString())){
+                tvChBP.setError("You don't have " + tvChBP.getText().toString() + " points");
+                Toast.makeText(this, "You don't have enough BP points to accept this challenge", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        } catch (NumberFormatException ex){
+
+        }
+        return true;
     }
 }
