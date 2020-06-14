@@ -26,7 +26,7 @@ public class ChallengeDialog extends AppCompatDialogFragment {
     private RadioButton rdoBtnWonBy;
     ImageView imgProofing;
 
-    TextView tvChid, tvAccepted;
+    TextView tvChid, tvAccepted, tvChallenger;
 
     @NonNull
     @Override
@@ -39,6 +39,7 @@ public class ChallengeDialog extends AppCompatDialogFragment {
         Bundle mArgs = getArguments();
         String challengeID = mArgs.getString("chID");
         String acceptedByid = mArgs.getString("acceptedBY");
+        String challenger = mArgs.getString("challenger");
 
         Gson gson = new Gson();
         
@@ -48,7 +49,7 @@ public class ChallengeDialog extends AppCompatDialogFragment {
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                        Result newResult = new Result(acceptedByid, challengeID, "false", "image");
+
                     }
                 })
                 .setPositiveButton("Post", new DialogInterface.OnClickListener() {
@@ -62,10 +63,11 @@ public class ChallengeDialog extends AppCompatDialogFragment {
         imgProofing = view.findViewById(R.id.img_res_proof_image);
         tvChid = view.findViewById(R.id.tv_res_chID);
         tvAccepted = view.findViewById(R.id.tv_res_acceptedbyID);
+        tvChallenger = view.findViewById(R.id.tv_res_challenger);
 
-        tvChid.setText(challengeID);
-        tvAccepted.setText(acceptedByid);
-
+        tvChid.setText("challengeID: " + challengeID);
+        tvAccepted.setText("acceptedBy: " + acceptedByid);
+        tvChallenger.setText("challenger: " + challenger);
 
         return builder.create();
     }

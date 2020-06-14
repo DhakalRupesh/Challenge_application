@@ -3,6 +3,8 @@ package com.rupesh.baji.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,15 +68,25 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Chal
         holder.imgViewDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                try {
+                    Bitmap bitmapChallengeImage = BitmapFactory.decodeResource(mContext.getResources(),
+                            Integer.parseInt(challenge.getChImage()));
+
+                    Intent intentBitmap = new Intent(mContext, ChallengeDetail.class);
+                        intentBitmap.putExtra("chImg", bitmapChallengeImage);
+                    mContext.startActivity(intentBitmap);
+                } catch(NumberFormatException ex) {
+
+                }
+
                 Intent viewDetails = new Intent(mContext, ChallengeDetail.class);
 
                 Challenge challenge = challengeList.get(position);
                 User user;
                 user = challenge.getChBy();
 
-                viewDetails.putExtra("chImg", challenge.getChImage());
                 viewDetails.putExtra("chID", challenge.get_id());
-
                 viewDetails.putExtra("challenger", user.getUname());
                 viewDetails.putExtra("chEmail", user.getEmail());
                 viewDetails.putExtra("chType", challenge.getChType());

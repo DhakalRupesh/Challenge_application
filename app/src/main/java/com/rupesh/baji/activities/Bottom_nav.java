@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.rupesh.baji.R;
 import com.rupesh.baji.api.Useri;
+import com.rupesh.baji.fragments.Challenges;
 import com.rupesh.baji.fragments.Home;
 import com.rupesh.baji.fragments.Profile;
 import com.rupesh.baji.model.User;
@@ -55,6 +56,9 @@ public class Bottom_nav extends AppCompatActivity {
             switch (menuItem.getItemId()) {
                 case R.id.nav_home_menu:
                     selectedFragment = new Home();
+                    break;
+                case R.id.nav_Challenge_menu:
+                    selectedFragment = new Challenges();
                     break;
                 case R.id.nav_Profile_menu:
                     selectedFragment = new Profile();

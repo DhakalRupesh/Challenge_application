@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.AcceptedChallenge"></activity>
+        <activity android:name=".activities.Challenge"></activity>
+        <activity android:name=".activities.AcceptedChallenge" />
         <activity android:name=".activities.YourChallenge" />
         <activity android:name=".activities.AddChallenge" />
         <activity android:name=".activities.ChallengeDetail" />
@@ -33,7 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SplashScreen" />
+        <activity android:name=".activities.SplashScreen"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

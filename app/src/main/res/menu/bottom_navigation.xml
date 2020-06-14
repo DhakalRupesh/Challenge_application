@@ -9,7 +9,15 @@
 
     <item
         android:title="Profile"
+        android:id="@+id/nav_Challenge_menu"
+        android:icon="@drawable/ic_gamepad_black_24dp"
+        />
+
+    <item
+        android:title="Profile"
         android:id="@+id/nav_Profile_menu"
         android:icon="@drawable/ic_person_black_24dp"
         />
+
+
 </menu>

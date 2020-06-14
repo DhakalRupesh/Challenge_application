@@ -71,8 +71,11 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
                 Bundle args = new Bundle();
                 User user;
                 user = challenge.getChAcceptedby();
+                User user1;
+                user1 = challenge.getChBy();
                 args.putString("chID", challenge.get_id());
                 args.putString("acceptedBY", user.get_id());
+                args.putString("challenger", user1.get_id());
 
                 ChallengeDialog challengeDialog = new ChallengeDialog();
                 challengeDialog.setArguments(args);

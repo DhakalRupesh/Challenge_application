@@ -82,10 +82,21 @@ public class ChallengeDetail extends AppCompatActivity {
     }
 
     public void getDetails(){
+
+        Bundle bundleBitmap  = getIntent().getExtras();
+
+        Bitmap bitmap1map = this.getIntent().getParcelableExtra("chImg");
+        ImageView viewBitmap = findViewById(R.id.img_details_ch_image);
+        viewBitmap.setImageBitmap(bitmap1map);
+
+//        String img = bundleBitmap.getString("chImg");
+//        imgChImage.setImageResource(Integer.parseInt(img.toString()));
+
         Bundle bundle = getIntent().getExtras();
 
-        Bitmap bitmap = getIntent().getParcelableExtra("img");
-        imgChImage.setImageBitmap(bitmap);
+//        Bitmap bitmap = getIntent().getParcelableExtra("img");
+//        imgChImage.setImageBitmap(bitmap);
+
 
         if(bundle != null) {
 //            String img = bundle.getString("chImg");
@@ -101,7 +112,7 @@ public class ChallengeDetail extends AppCompatActivity {
             String chDate = bundle.getString("chDate");
 
 
-//            imgChImage.setImageResource(img);
+//            imgChImage.setImageResource(Integer.parseInt(img.toString()));
             tvChid.setText(chId);
             tvChallenger.setText(challenger);
             tvChType.setText(chType);
