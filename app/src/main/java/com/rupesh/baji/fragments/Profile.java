@@ -53,32 +53,32 @@ public class Profile extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
 
-            imgLogout = view.findViewById(R.id.img_profile_logout);
+//            imgLogout = view.findViewById(R.id.img_profile_logout);
             imgProfile = view.findViewById(R.id.img_profile_Image);
             imgEditProfile = view.findViewById(R.id.img_edit_profile);
 
             tvUsername = view.findViewById(R.id.tv_profile_username);
             tvBP = view.findViewById(R.id.tv_profile_game_points);
 
-            tv_Your_Challenge = view.findViewById(R.id.tv_pro_Your_Challenge);
-            tv_Accepted_Challenge = view.findViewById(R.id.tv_pro_Your_Accepted_Challenge);
-            tv_redeem_Cash = view.findViewById(R.id.tv_profile_redeem_cash);
+//            tv_Your_Challenge = view.findViewById(R.id.tv_pro_Your_Challenge);
+//            tv_Accepted_Challenge = view.findViewById(R.id.tv_pro_Your_Accepted_Challenge);
+//            tv_redeem_Cash = view.findViewById(R.id.tv_profile_redeem_cash);
 
-            tv_Accepted_Challenge.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent goToAcceptedChallenge = new Intent(getContext(), AcceptedChallenge.class);
-                    startActivity(goToAcceptedChallenge);
-                }
-            });
+//            tv_Accepted_Challenge.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent goToAcceptedChallenge = new Intent(getContext(), AcceptedChallenge.class);
+//                    startActivity(goToAcceptedChallenge);
+//                }
+//            });
 
-            tv_redeem_Cash.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    RedeemDialog redeemDialog = new RedeemDialog();
-                    redeemDialog.show(getActivity().getSupportFragmentManager(), "Redeem using Pay Pal");
-                }
-            });
+//            tv_redeem_Cash.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    RedeemDialog redeemDialog = new RedeemDialog();
+//                    redeemDialog.show(getActivity().getSupportFragmentManager(), "Redeem using Pay Pal");
+//                }
+//            });
 
             imgProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -96,12 +96,12 @@ public class Profile extends Fragment {
                 }
             });
 
-            imgLogout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Logout();
-                }
-            });
+//            imgLogout.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Logout();
+//                }
+//            });
 
             LoadUserData(view);
 

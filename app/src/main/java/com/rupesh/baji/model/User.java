@@ -7,10 +7,31 @@ public class User {
     private String uname;
     private String pass;
     private String amt;
+    private String phone;
     private String proImg;
 
-    public User(String _id, String fname, String email, String uname, String pass, String amt, String proImg) {
+    public User(String _id, String fname, String email, String uname, String pass, String amt, String phone, String proImg) {
         this._id = _id;
+        this.fname = fname;
+        this.email = email;
+        this.uname = uname;
+        this.pass = pass;
+        this.amt = amt;
+        this.phone = phone;
+        this.proImg = proImg;
+    }
+
+//    public User(String _id, String fname, String email, String uname, String pass, String amt, String proImg) {
+//        this._id = _id;
+//        this.fname = fname;
+//        this.email = email;
+//        this.uname = uname;
+//        this.pass = pass;
+//        this.amt = amt;
+//        this.proImg = proImg;
+//    }
+
+    public User(String fname, String email, String uname, String pass, String amt, String proImg) {
         this.fname = fname;
         this.email = email;
         this.uname = uname;
@@ -19,12 +40,13 @@ public class User {
         this.proImg = proImg;
     }
 
-    public User(String fname, String email, String uname, String pass, String amt, String proImg) {
+    public User(String fname, String email, String uname, String pass, String amt, String phone, String proImg) {
         this.fname = fname;
         this.email = email;
         this.uname = uname;
         this.pass = pass;
         this.amt = amt;
+        this.phone = phone;
         this.proImg = proImg;
     }
 

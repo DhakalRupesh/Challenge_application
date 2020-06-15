@@ -96,14 +96,14 @@ public class Signup extends AppCompatActivity {
         String username = etUsername.getText().toString();
         String password = etPassword.getText().toString();
         String gamepoint = "20";
+        String phone = "9841756231";
 
-        User user = new User(fullname, email, username, password, gamepoint, imageName);
+        User user = new User(fullname, email, username, password, gamepoint, phone, imageName);
 
         Useri usersAPI = Url.getInstance().create(Useri.class);
         Call<Void> userCall  = usersAPI.addUser(user);
 
         System.out.println("Retrofit call is: "+userCall);
-
 
         userCall.enqueue(new Callback<Void>() {
             @Override

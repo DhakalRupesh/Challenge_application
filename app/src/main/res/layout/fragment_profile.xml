@@ -5,31 +5,31 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.Profile"
-    android:background="#ffffff">
+    android:background="#fafafa">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="30dp">
+>
 
-        <ImageView
-            android:id="@+id/img_profile_logout"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingRight="8dp"
-            android:clickable="true"
-            android:elevation="10dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/logout"
-            />
+<!--        <ImageView-->
+<!--            android:id="@+id/img_profile_logout"-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:clickable="true"-->
+<!--            android:elevation="10dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:src="@drawable/logout"-->
+<!--            />-->
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_profile_Image"
-            android:layout_width="125dp"
-            android:layout_height="140dp"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
             android:elevation="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/img_profile_logout"
+            android:layout_marginTop="40dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/profile_picture" />
 
@@ -42,6 +42,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto"
             android:text="wackyjacky101"
+            android:textStyle="bold"
             android:textColor="#000000" />
 
         <ImageView
@@ -51,6 +52,7 @@
             android:clickable="true"
             android:tint="#303F9F"
             android:elevation="5dp"
+            android:layout_marginTop="7dp"
             android:layout_marginLeft="5dp"
             android:src="@drawable/ic_edit_black_24dp"
             android:layout_below="@id/img_profile_Image"
@@ -73,57 +75,151 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_profile_game_points"
             android:orientation="vertical"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="-30dp"
             >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your Activitys"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:textColor="@color/colorText"/>
-
-            <TextView
-                android:id="@+id/tv_pro_Your_Challenge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:text="Your Challenges"
-                android:textColor="@color/colorBlack"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tv_pro_Your_Accepted_Challenge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:textColor="@color/colorBlack"
-                android:text="Accepted Challenges"
-                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/profilewavybanner"/>
 
 <!--            <TextView-->
+<!--                android:id="@+id/tv_profile_redeem_cash"-->
 <!--                android:layout_width="wrap_content"-->
 <!--                android:layout_height="wrap_content"-->
 <!--                android:textSize="18sp"-->
 <!--                android:layout_gravity="center"-->
 <!--                android:layout_marginTop="15dp"-->
+<!--                android:fontFamily="@font/roboto"-->
 <!--                android:textColor="@color/colorBlack"-->
-<!--                android:text="Your Challenges"/>-->
+<!--                android:text="Redeem"/>-->
 
-            <TextView
-                android:id="@+id/tv_profile_redeem_cash"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_baseline_person_profile_24"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginTop="5dp"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginLeft="10dp"
+                        android:text="My Profile"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_baseline_redeem_24"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginTop="5dp"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginLeft="10dp"
+                        android:text="Redeem"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_replay_black_24dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginTop="5dp"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginLeft="10dp"
+                        android:text="History"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_baseline_settings_24"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginTop="5dp"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginLeft="10dp"
+                        android:text="Settings"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_baseline_person_profile_24"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
-                android:text="Redeem Cash"/>
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto"
+                android:layout_marginLeft="10dp"
+                android:text="Logout"/>
 
         </LinearLayout>
 
