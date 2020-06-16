@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_columnWeight="1"
     android:layout_rowWeight="1"
-    app:cardElevation="5dp"
+    app:cardElevation="8dp"
     android:layout_margin="12dp"
     app:cardCornerRadius="12dp"
     android:alignmentMode="alignMargins"
@@ -23,6 +23,7 @@
             android:id="@+id/tv_chID"
             android:layout_width="wrap_content"
             android:visibility="gone"
+            android:fontFamily="@font/roboto"
             android:layout_height="wrap_content"/>
 
         <ImageView
@@ -43,6 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Challenger : "
+                android:fontFamily="@font/roboto"
                 android:textSize="15sp"
                 android:textColor="@color/colorBlack" />
 
@@ -51,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="15sp"
+                android:fontFamily="@font/roboto"
                 android:text="name"
                 android:textColor="@color/colorBlack" />
 
@@ -67,6 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="15sp"
+                android:fontFamily="@font/roboto"
                 android:text="Game : "
                 android:textColor="@color/colorBlack" />
 
@@ -75,6 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="name"
+                android:fontFamily="@font/roboto"
                 android:textColor="@color/colorBlack"
                 android:textSize="15sp" />
 
@@ -92,6 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="15sp"
+                android:fontFamily="@font/roboto"
                 android:text="BP : "
                 android:textColor="@color/colorBlack" />
 
@@ -100,6 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="15sp"
+                android:fontFamily="@font/roboto"
                 android:text="name"
                 android:textColor="@color/colorBlack" />
 
@@ -112,6 +119,7 @@
             android:layout_marginRight="10dp"
             android:src="@drawable/next64"
             android:clickable="true"
+            android:fontFamily="@font/roboto"
             android:elevation="10dp"
             android:layout_gravity="end"
             />

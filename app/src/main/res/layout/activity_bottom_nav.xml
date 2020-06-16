@@ -38,7 +38,7 @@
             app:itemIconTint="@color/selector"
             app:itemIconSize="30dp"
             app:labelVisibilityMode="unlabeled"
-            android:elevation="4dp"
+            android:elevation="20dp"
             app:menu="@menu/bottom_navigation"
             android:layout_marginTop="1dp"
             android:background="@drawable/curve_sides"

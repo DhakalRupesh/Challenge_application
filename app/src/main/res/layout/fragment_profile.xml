@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.Profile"
-    android:background="#fafafa">
+    android:background="#fff">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -156,29 +156,6 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/ic_replay_black_24dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
-                        android:layout_marginTop="5dp"
-                        android:textSize="18sp"
-                        android:fontFamily="@font/roboto"
-                        android:layout_marginLeft="10dp"
-                        android:text="History"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="30dp">
-
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
                         android:src="@drawable/ic_baseline_settings_24"/>
 
                     <TextView
@@ -193,35 +170,58 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp">
+
+                    <ImageView
+                        android:layout_width="33dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/logout"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginTop="5dp"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginLeft="10dp"
+                        android:text="Logout"/>
+
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="30dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginBottom="30dp">-->
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_baseline_person_profile_24"/>
+<!--            <ImageView-->
+<!--                android:layout_width="35dp"-->
+<!--                android:layout_height="35dp"-->
+<!--                android:src="@drawable/ic_baseline_person_profile_24"/>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:layout_marginTop="5dp"
-                android:textSize="18sp"
-                android:fontFamily="@font/roboto"
-                android:layout_marginLeft="10dp"
-                android:text="Logout"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@color/colorBlack"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:textSize="18sp"-->
+<!--                android:fontFamily="@font/roboto"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:text="Logout"/>-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
     </RelativeLayout>
 

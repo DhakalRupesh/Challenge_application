@@ -70,12 +70,13 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Chal
             public void onClick(View v) {
 
                 try {
-                    Bitmap bitmapChallengeImage = BitmapFactory.decodeResource(mContext.getResources(),
-                            Integer.parseInt(challenge.getChImage()));
+//                    Bitmap bitmapChallengeImage = BitmapFactory.decodeResource(mContext.getResources(),
+//                            Integer.parseInt(challenge.getChImage()));
+                    Bitmap bitmapChallengeImage = BitmapFactory.decodeResource(mContext.getResources(), Integer.parseInt(imagePathPost));
 
-                    Intent intentBitmap = new Intent(mContext, ChallengeDetail.class);
-                        intentBitmap.putExtra("chImg", bitmapChallengeImage);
-                    mContext.startActivity(intentBitmap);
+                    Intent intent = new Intent(mContext, ChallengeDetail.class);
+                    intent.putExtra("BitmapImage", bitmapChallengeImage);
+
                 } catch(NumberFormatException ex) {
 
                 }

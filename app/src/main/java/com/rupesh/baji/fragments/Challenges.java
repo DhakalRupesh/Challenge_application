@@ -30,8 +30,8 @@ public class Challenges extends Fragment {
 
         ViewPageAdapterChallenge viewPageAdapter = new ViewPageAdapterChallenge(getFragmentManager());
 
-        viewPageAdapter.addFragment(new MyChallenges(), "PHONE");
-        viewPageAdapter.addFragment(new CurrentChallenges(), "EMAIL");
+        viewPageAdapter.addFragment(new MyChallenges(), "My Challenges");
+        viewPageAdapter.addFragment(new CurrentChallenges(), "Ongoing");
 
         viewPager.setAdapter(viewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);

@@ -3,6 +3,7 @@ package com.rupesh.baji.activities;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,7 @@ public class ChallengeDetail extends AppCompatActivity {
 
     ImageView imgChImage;
     TextView tvChallenger, tvChType, tvChGame, tvChBP, tvChDescription, tvChTime, tvChDate, tvChid;
-    Challenge challenge;
+    String challenge;
     Button btnAcceptChallenge;
 
     @Override
@@ -47,6 +48,8 @@ public class ChallengeDetail extends AppCompatActivity {
         btnAcceptChallenge = findViewById(R.id.btn_details_acceptChallenge);
 
         getDetails();
+
+        getImage();
 
         btnAcceptChallenge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,27 +84,47 @@ public class ChallengeDetail extends AppCompatActivity {
         });
     }
 
+    public void getImage(){
+        Bundle bundleImage = getIntent().getExtras();
+        String challengeID = bundleImage.getString("chID");
+
+        Challengei getSingleChallenge = Url.getInstance().create(Challengei.class);
+        Call<Challenge> listCallSingle = getSingleChallenge.getOneChallenge(challengeID);
+
+        listCallSingle.enqueue(new Callback<Challenge>() {
+            @Override
+            public void onResponse(Call<Challenge> call, Response<Challenge> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                challenge = response.body().getChImage();
+            }
+
+            @Override
+            public void onFailure(Call<Challenge> call, Throwable t) {
+
+            }
+        });
+    }
+
     public void getDetails(){
 
         Bundle bundleBitmap  = getIntent().getExtras();
 
-        Bitmap bitmap1map = this.getIntent().getParcelableExtra("chImg");
-        ImageView viewBitmap = findViewById(R.id.img_details_ch_image);
-        viewBitmap.setImageBitmap(bitmap1map);
+        Intent intent = getIntent();
+//        Bitmap bitmap = intent.getParcelableExtra("BitmapImage");
+//        imgChImage.setImageBitmap(bitmap);
 
-//        String img = bundleBitmap.getString("chImg");
-//        imgChImage.setImageResource(Integer.parseInt(img.toString()));
+//        Bitmap bitmap1map = this.getIntent().getParcelableExtra("BitmapImage");
+//        setContentView(R.layout.activity_challenge_detail);
+//        ImageView viewBitmap = findViewById(R.id.img_details_ch_image);
+//        viewBitmap.setImageBitmap(bitmap1map);
 
         Bundle bundle = getIntent().getExtras();
 
-//        Bitmap bitmap = getIntent().getParcelableExtra("img");
-//        imgChImage.setImageBitmap(bitmap);
-
-
         if(bundle != null) {
-//            String img = bundle.getString("chImg");
             String chId = bundle.getString("chID");
-
             String challenger = bundle.getString("challenger");
             String chEmail = bundle.getString("chEmail");
             String chType = bundle.getString("chType");
@@ -112,7 +135,6 @@ public class ChallengeDetail extends AppCompatActivity {
             String chDate = bundle.getString("chDate");
 
 
-//            imgChImage.setImageResource(Integer.parseInt(img.toString()));
             tvChid.setText(chId);
             tvChallenger.setText(challenger);
             tvChType.setText(chType);

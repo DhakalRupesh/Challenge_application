@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F5F5F5</color>
+    <color name="colorPrimary">#fafafa</color>
     <color name="colorPrimaryDark">#fafafa</color>
     <color name="colorAccent">#03DAC5</color>
 
@@ -11,5 +11,6 @@
     <color name="btnGreen">#28A745</color>
     <color name="colorError">#B00020</color>
     <color name="colorSuccess">#00796B</color>
+    <color name="lightText">#636363</color>
 
 </resources>
