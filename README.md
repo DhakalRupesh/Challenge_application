@@ -6,3 +6,5 @@ points earned from the application can be redeemed as cash via pament gateway
 ###### Android Studio (android app coding)
 ###### VS Code (backend API handeling)
 ###### Figma (prototyping designs)
+
+###### developed by : Rupesh Dhakal (a73dhakal@outlook.com / aayushdhaka544@gmail.com)
