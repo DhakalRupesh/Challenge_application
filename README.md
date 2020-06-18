@@ -7,4 +7,5 @@ points earned from the application can be redeemed as cash via pament gateway
 ###### VS Code (backend API handeling)
 ###### Figma (prototyping designs)
 
-###### developed by : Rupesh Dhakal (a73dhakal@outlook.com / aayushdhaka544@gmail.com)
+### developed by 
+Rupesh Dhakal (a73dhakal@outlook.com / aayushdhaka544@gmail.com)
