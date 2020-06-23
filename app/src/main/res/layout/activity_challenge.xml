@@ -8,12 +8,18 @@
     android:orientation="vertical"
     tools:context=".activities.Challenge">
 
-    <androidx.viewpager2.widget.ViewPager2
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_register"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        app:tabIndicatorColor="@color/colorBlack"
+        app:tabTextColor="#000000"
+        />
 
-
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

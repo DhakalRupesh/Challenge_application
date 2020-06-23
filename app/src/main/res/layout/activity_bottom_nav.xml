@@ -31,16 +31,26 @@
 <!--            android:background="@drawable/curve_view"-->
 <!--            />-->
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_nav_menu"
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottom_nav_menu"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:itemIconTint="@color/selector"-->
+<!--            app:itemIconSize="30dp"-->
+<!--            app:labelVisibilityMode="unlabeled"-->
+<!--            android:elevation="20dp"-->
+<!--            app:menu="@menu/bottom_navigation"-->
+<!--            android:layout_marginTop="1dp"-->
+<!--            android:background="@drawable/curve_sides"-->
+<!--            />-->
+
+        <com.ismaeldivita.chipnavigation.ChipNavigationBar
+            android:id="@+id/bottom_cnv_nav_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:cnb_menuResource="@menu/bottom_navigation"
             app:itemIconTint="@color/selector"
-            app:itemIconSize="30dp"
-            app:labelVisibilityMode="unlabeled"
-            android:elevation="20dp"
-            app:menu="@menu/bottom_navigation"
-            android:layout_marginTop="1dp"
             android:background="@drawable/curve_sides"
             />
 

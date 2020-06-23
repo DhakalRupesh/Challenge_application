@@ -96,7 +96,7 @@ public class Signup extends AppCompatActivity {
         String username = etUsername.getText().toString();
         String password = etPassword.getText().toString();
         String gamepoint = "20";
-        String phone = "9841756231";
+        String phone = "edit profile to add phone number";
 
         User user = new User(fullname, email, username, password, gamepoint, phone, imageName);
 

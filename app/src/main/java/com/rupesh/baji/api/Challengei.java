@@ -30,6 +30,9 @@ public interface Challengei {
     @GET("/challenge/myAccepted")
     Call<List<Challenge>> getAcceptedChallenges(@Header("Authorization") String token);
 
+    @GET("/challenge/myChallenges")
+    Call<List<Challenge>> getMyChallenges(@Header("Authorization") String token);
+
     @PUT("/challenge/{id}")
     Call<Void> updateChallengeStatus(@Path("id") String id, @Body Challenge upchallenge);
 

@@ -6,15 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -22,12 +17,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rupesh.baji.R;
-import com.rupesh.baji.activities.AcceptedChallenge;
+import com.rupesh.baji.activities.Challenge;
 import com.rupesh.baji.activities.Login;
 import com.rupesh.baji.activities.ProfileEdit;
-import com.rupesh.baji.activities.YourChallenge;
 import com.rupesh.baji.api.Useri;
-import com.rupesh.baji.helper.ChallengeDialog;
 import com.rupesh.baji.helper.RedeemDialog;
 import com.rupesh.baji.model.User;
 import com.rupesh.baji.url.Url;
@@ -42,10 +35,8 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class Profile extends Fragment {
 
-    ImageView imgLogout, imgProfile, imgEditProfile;
-    TextView tvUsername, tvBP;
-
-    TextView tv_Your_Challenge, tv_Accepted_Challenge, tv_redeem_Cash;
+    ImageView imgLogout, imgProfile, imgredeemCash, imgChallenge;
+    TextView tvUsername, tvBP, tv_challenge, tv_redeem_Cash, tv_settings;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,16 +44,18 @@ public class Profile extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
 
-//            imgLogout = view.findViewById(R.id.img_profile_logout);
+            imgLogout = view.findViewById(R.id.img_profile_logout);
             imgProfile = view.findViewById(R.id.img_profile_Image);
-            imgEditProfile = view.findViewById(R.id.img_edit_profile);
+            imgredeemCash = view.findViewById(R.id.imp_profile_redeem_cash);
+            imgChallenge = view.findViewById(R.id.img_profile_challenge);
 
             tvUsername = view.findViewById(R.id.tv_profile_username);
             tvBP = view.findViewById(R.id.tv_profile_game_points);
+            tv_redeem_Cash = view.findViewById(R.id.tv_profile_redeem_cash);
+            tv_challenge = view.findViewById(R.id.tv_profile_challenge);
+            tv_settings = view.findViewById(R.id.tv_profile_settings);
 
-//            tv_Your_Challenge = view.findViewById(R.id.tv_pro_Your_Challenge);
-//            tv_Accepted_Challenge = view.findViewById(R.id.tv_pro_Your_Accepted_Challenge);
-//            tv_redeem_Cash = view.findViewById(R.id.tv_profile_redeem_cash);
+            LoadUserData(view);
 
 //            tv_Accepted_Challenge.setOnClickListener(new View.OnClickListener() {
 //                @Override
@@ -72,38 +65,50 @@ public class Profile extends Fragment {
 //                }
 //            });
 
-//            tv_redeem_Cash.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    RedeemDialog redeemDialog = new RedeemDialog();
-//                    redeemDialog.show(getActivity().getSupportFragmentManager(), "Redeem using Pay Pal");
-//                }
-//            });
+            imgredeemCash.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    RedeemDialog redeemDialog = new RedeemDialog();
+                    redeemDialog.show(getActivity().getSupportFragmentManager(), "Redeem using Pay Pal");
+                }
+            });
+
+            tv_redeem_Cash.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    RedeemDialog redeemDialog = new RedeemDialog();
+                    redeemDialog.show(getActivity().getSupportFragmentManager(), "Redeem using Pay Pal");
+                }
+            });
 
             imgProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent editProfile = new Intent(getContext(), ProfileEdit.class);
-                    startActivity(editProfile);
+                    startActivity(new Intent(getContext(), ProfileEdit.class));
                 }
             });
 
-            imgEditProfile.setOnClickListener(new View.OnClickListener() {
+            imgLogout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent editProfile = new Intent(getContext(), ProfileEdit.class);
-                    startActivity(editProfile);
+                    Logout();
                 }
             });
 
-//            imgLogout.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Logout();
-//                }
-//            });
+            imgChallenge.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getContext(), Challenge.class));
+                }
+            });
 
-            LoadUserData(view);
+            tv_challenge.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getContext(), Challenge.class));
+                }
+            });
+
 
         return view;
     }

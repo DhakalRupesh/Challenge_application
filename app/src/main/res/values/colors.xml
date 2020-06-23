@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#fafafa</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <color name="themeDark">#283593</color>
     <color name="colorBlack">#000000</color>
     <color name="colorInputGray">#E8EBEC</color>
     <color name="updated">#E62DDB63</color>
@@ -12,5 +13,6 @@
     <color name="colorError">#B00020</color>
     <color name="colorSuccess">#00796B</color>
     <color name="lightText">#636363</color>
+    <color name="textXmlColor">#757575</color>
 
 </resources>

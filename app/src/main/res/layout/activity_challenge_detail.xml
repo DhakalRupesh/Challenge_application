@@ -28,7 +28,7 @@
         android:padding="10dp">
         
         <androidx.cardview.widget.CardView
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="180dp"
             app:cardCornerRadius="30dp"
             android:elevation="10dp"
@@ -37,11 +37,10 @@
 
             <ImageView
                 android:id="@+id/img_details_ch_image"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/fortnite"
-                />
+                android:src="@drawable/fortnite" />
 
         </androidx.cardview.widget.CardView>
 

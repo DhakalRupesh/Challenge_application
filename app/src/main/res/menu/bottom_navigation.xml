@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="Market"
+        android:id="@+id/nav_Challenge_menu"
+        android:icon="@drawable/ic_baseline_local_grocery_store_24"
+        app:cnb_backgroundColor= "#283593"
+        app:cnb_iconColor= "#fff"
+        app:cnb_textColor="#fff"
+        />
+
     <item
         android:title="Home"
         android:id="@+id/nav_home_menu"
         android:icon="@drawable/ic_baseline_home_24"
-        android:iconTint="@color/colorAccent"
-        />
-
-    <item
-        android:title="Profile"
-        android:id="@+id/nav_Challenge_menu"
-        android:icon="@drawable/ic_gamepad_black_24dp"
+        app:cnb_backgroundColor= "#283593"
+        app:cnb_iconColor= "#fff"
+        app:cnb_textColor="#fff"
         />
 
     <item
         android:title="Profile"
         android:id="@+id/nav_Profile_menu"
         android:icon="@drawable/ic_person_black_24dp"
+        app:cnb_backgroundColor= "#283593"
+        app:cnb_iconColor= "#fff"
+        app:cnb_textColor="#fff"
         />
-
 
 </menu>

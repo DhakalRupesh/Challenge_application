@@ -1,8 +1,4 @@
-package com.rupesh.baji.activities;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.content.CursorLoader;
+package com.rupesh.baji.fragments;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -11,8 +7,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.loader.content.CursorLoader;
+
 import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -21,6 +24,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.rupesh.baji.R;
+import com.rupesh.baji.activities.Bottom_nav;
 import com.rupesh.baji.api.Challengei;
 import com.rupesh.baji.model.Challenge;
 import com.rupesh.baji.model.User;
@@ -41,7 +45,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddChallenge extends AppCompatActivity {
+public class AddChallenge extends Fragment {
 
     EditText et_ch_type, et_ch_game, et_ch_point, et_ch_date, et_ch_time, et_ch_Description;
     ImageView img_ch_image;
@@ -54,20 +58,21 @@ public class AddChallenge extends AppCompatActivity {
     private String imageName = "";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_challenge);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_add_challenge, container, false);
 
-        et_ch_type = findViewById(R.id.et_challenge_type);
-        et_ch_game = findViewById(R.id.et_challenge_game);
-        et_ch_point = findViewById(R.id.et_challenge_point);
-        et_ch_date = findViewById(R.id.et_challenge_date);
-        et_ch_time = findViewById(R.id.et_challenge_time);
-        et_ch_Description = findViewById(R.id.et_challenge_Desc);
+        et_ch_type = view.findViewById(R.id.et_challenge_type);
+        et_ch_game = view.findViewById(R.id.et_challenge_game);
+        et_ch_point = view.findViewById(R.id.et_challenge_point);
+        et_ch_date = view.findViewById(R.id.et_challenge_date);
+        et_ch_time = view.findViewById(R.id.et_challenge_time);
+        et_ch_Description = view.findViewById(R.id.et_challenge_Desc);
 
-        img_ch_image = findViewById(R.id.img_ac_challenge_image);
+        img_ch_image = view.findViewById(R.id.img_ac_challenge_image);
 
-        btnAddChallenge = findViewById(R.id.btn_ac_addChallenge);
+        btnAddChallenge = view.findViewById(R.id.btn_ac_addChallenge);
 
         // date picker
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -83,7 +88,7 @@ public class AddChallenge extends AppCompatActivity {
         et_ch_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog(AddChallenge.this, date, myCalendar
+                new DatePickerDialog(getContext(), date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
@@ -93,7 +98,7 @@ public class AddChallenge extends AppCompatActivity {
         et_ch_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTimePicker = new TimePickerDialog(AddChallenge.this, new TimePickerDialog.OnTimeSetListener() {
+                mTimePicker = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         et_ch_time.setText( selectedHour + ":" + selectedMinute);
@@ -116,7 +121,7 @@ public class AddChallenge extends AppCompatActivity {
             public void onClick(View v) {
                 if(checkEmpty()){
                     if(imagePath == null){
-                        Toast.makeText(AddChallenge.this, "Please select an image", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Please select an image", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     saveImageOnly();
@@ -127,6 +132,7 @@ public class AddChallenge extends AppCompatActivity {
             }
         });
 
+        return view;
     }
 
     // initialize date in text box and format of date
@@ -144,11 +150,11 @@ public class AddChallenge extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == Activity.RESULT_OK) {
             if (data == null) {
-                Toast.makeText(AddChallenge.this, "Please select an image ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please select an image ", Toast.LENGTH_SHORT).show();
             }
         }
         else {
@@ -160,7 +166,7 @@ public class AddChallenge extends AppCompatActivity {
 
     private String getRealPathFromUri(Uri uri) {
         String[] projection = {MediaStore.Images.Media.DATA};
-        CursorLoader loader = new CursorLoader(AddChallenge.this, uri, projection, null, null, null);
+        CursorLoader loader = new CursorLoader(getContext(), uri, projection, null, null, null);
         Cursor cursor = loader.loadInBackground();
         int colIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
@@ -183,7 +189,7 @@ public class AddChallenge extends AppCompatActivity {
             Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
             imageName = imageResponseResponse.body().getFilename();
         } catch (IOException e) {
-            Toast.makeText(AddChallenge.this, "Error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
@@ -214,13 +220,13 @@ public class AddChallenge extends AppCompatActivity {
         callChallenge.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(AddChallenge.this, "Your Challenge is posted successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Your Challenge is posted successfully", Toast.LENGTH_SHORT).show();
 //                ClearField();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(AddChallenge.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -263,7 +269,7 @@ public class AddChallenge extends AppCompatActivity {
         try {
             if(number < Integer.parseInt(et_ch_point.getText().toString())){
                 et_ch_point.setError("You don't have " + et_ch_point.getText().toString() + " points");
-                Toast.makeText(this, "You don't have enough points", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "You don't have enough points", Toast.LENGTH_SHORT).show();
                 return false;
             }if(Integer.parseInt(et_ch_point.getText().toString()) == 0) {
                 et_ch_point.setError("You can't enter 0 points");

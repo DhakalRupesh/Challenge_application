@@ -17,6 +17,7 @@ import com.rupesh.baji.api.Challengei;
 import com.rupesh.baji.model.Challenge;
 import com.rupesh.baji.model.User;
 import com.rupesh.baji.url.Url;
+import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,7 +27,6 @@ public class ChallengeDetail extends AppCompatActivity {
 
     ImageView imgChImage;
     TextView tvChallenger, tvChType, tvChGame, tvChBP, tvChDescription, tvChTime, tvChDate, tvChid;
-    String challenge;
     Button btnAcceptChallenge;
 
     @Override
@@ -34,7 +34,7 @@ public class ChallengeDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_challenge_detail);
 
-        imgChImage = findViewById(R.id.img_details_ch_image);
+//        imgChImage = findViewById(R.id.img_details_ch_image);
 
         tvChallenger = findViewById(R.id.tv_details_challenger);
         tvChType = findViewById(R.id.tv_details_chType);
@@ -98,7 +98,16 @@ public class ChallengeDetail extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                challenge = response.body().getChImage();
+                Challenge challenge = response.body();
+                String imgPath = Url.imagePath + response.body().getChImage();
+
+                ImageView challengeImage = findViewById(R.id.img_details_ch_image);
+                try{
+                    Picasso.get().load(imgPath).into(challengeImage);
+
+                }catch (Exception e){
+                    Picasso.get().load(R.drawable.fortnite).into(challengeImage);
+                }
             }
 
             @Override
@@ -109,18 +118,6 @@ public class ChallengeDetail extends AppCompatActivity {
     }
 
     public void getDetails(){
-
-        Bundle bundleBitmap  = getIntent().getExtras();
-
-        Intent intent = getIntent();
-//        Bitmap bitmap = intent.getParcelableExtra("BitmapImage");
-//        imgChImage.setImageBitmap(bitmap);
-
-//        Bitmap bitmap1map = this.getIntent().getParcelableExtra("BitmapImage");
-//        setContentView(R.layout.activity_challenge_detail);
-//        ImageView viewBitmap = findViewById(R.id.img_details_ch_image);
-//        viewBitmap.setImageBitmap(bitmap1map);
-
         Bundle bundle = getIntent().getExtras();
 
         if(bundle != null) {

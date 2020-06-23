@@ -23,6 +23,7 @@ import com.rupesh.baji.model.User;
 import com.rupesh.baji.url.Url;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ChallengeViewHolder> {
@@ -69,17 +70,17 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Chal
             @Override
             public void onClick(View v) {
 
-                try {
-//                    Bitmap bitmapChallengeImage = BitmapFactory.decodeResource(mContext.getResources(),
-//                            Integer.parseInt(challenge.getChImage()));
-                    Bitmap bitmapChallengeImage = BitmapFactory.decodeResource(mContext.getResources(), Integer.parseInt(imagePathPost));
-
-                    Intent intent = new Intent(mContext, ChallengeDetail.class);
-                    intent.putExtra("BitmapImage", bitmapChallengeImage);
-
-                } catch(NumberFormatException ex) {
-
-                }
+//                try {
+////                    Bitmap bitmapChallengeImage = BitmapFactory.decodeResource(mContext.getResources(),
+////                            Integer.parseInt(challenge.getChImage()));
+//                    Bitmap bitmapChallengeImage = BitmapFactory.decodeResource(mContext.getResources(), Integer.parseInt(imagePathPost));
+//
+//                    Intent intent = new Intent(mContext, ChallengeDetail.class);
+//                    intent.putExtra("BitmapImage", bitmapChallengeImage);
+//
+//                } catch(NumberFormatException ex) {
+//
+//                }
 
                 Intent viewDetails = new Intent(mContext, ChallengeDetail.class);
 
@@ -100,6 +101,11 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Chal
                 mContext.startActivity(viewDetails);
             }
         });
+    }
+
+    public void FilterPlaces(ArrayList<Challenge> filteredList){
+        challengeList=filteredList;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -128,31 +134,6 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Chal
             this.context = mContext;
             this.list = challengeList;
 
-//            imgViewDetail.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent viewDetails = new Intent(context, ChallengeDetail.class);
-//                    Challenge challenge = null;
-//                    userme = challenge.getChBy();
-////                    User user;
-////                    user = challenge.getChBy();
-//                    challenge = list.get(getAdapterPosition());
-//
-//                    viewDetails.putExtra("chImg", challenge.getChImage());
-//                    viewDetails.putExtra("chID", challenge.get_id());
-//
-//                    viewDetails.putExtra("challenger", userme.getUname());
-//                    viewDetails.putExtra("chEmail", userme.getEmail());
-//                    viewDetails.putExtra("chType", challenge.getChType());
-//                    viewDetails.putExtra("chGame", challenge.getChGame());
-//                    viewDetails.putExtra("chBP", challenge.getChAmt());
-//                    viewDetails.putExtra("chDesc", challenge.getChDesc());
-//                    viewDetails.putExtra("chTime", challenge.getChTime());
-//                    viewDetails.putExtra("chDate", challenge.getChDate());
-//
-//                    context.startActivity(viewDetails);
-//                }
-//            });
         }
     }
 }
