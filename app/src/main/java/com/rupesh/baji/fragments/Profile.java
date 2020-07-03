@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.rupesh.baji.R;
 import com.rupesh.baji.activities.Challenge;
 import com.rupesh.baji.activities.Login;
+import com.rupesh.baji.activities.MyProfile;
 import com.rupesh.baji.activities.ProfileEdit;
 import com.rupesh.baji.api.Useri;
 import com.rupesh.baji.helper.RedeemDialog;
@@ -35,8 +36,8 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class Profile extends Fragment {
 
-    ImageView imgLogout, imgProfile, imgredeemCash, imgChallenge;
-    TextView tvUsername, tvBP, tv_challenge, tv_redeem_Cash, tv_settings;
+    ImageView imgLogout, imgProfile, imgredeemCash, imgChallenge, imgmyProfile;
+    TextView tvUsername, tvBP, tv_challenge, tv_redeem_Cash, tv_settings, tvMyProfile;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +47,7 @@ public class Profile extends Fragment {
 
             imgLogout = view.findViewById(R.id.img_profile_logout);
             imgProfile = view.findViewById(R.id.img_profile_Image);
+            imgmyProfile = view.findViewById(R.id.img_profile_myprofile);
             imgredeemCash = view.findViewById(R.id.imp_profile_redeem_cash);
             imgChallenge = view.findViewById(R.id.img_profile_challenge);
 
@@ -54,16 +56,24 @@ public class Profile extends Fragment {
             tv_redeem_Cash = view.findViewById(R.id.tv_profile_redeem_cash);
             tv_challenge = view.findViewById(R.id.tv_profile_challenge);
             tv_settings = view.findViewById(R.id.tv_profile_settings);
+            tvMyProfile = view.findViewById(R.id.tv_profile_myprofile);
 
             LoadUserData(view);
 
-//            tv_Accepted_Challenge.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent goToAcceptedChallenge = new Intent(getContext(), AcceptedChallenge.class);
-//                    startActivity(goToAcceptedChallenge);
-//                }
-//            });
+
+            imgmyProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getContext(), MyProfile.class));
+                }
+            });
+
+            tvMyProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getContext(), MyProfile.class));
+                }
+            });
 
             imgredeemCash.setOnClickListener(new View.OnClickListener() {
                 @Override

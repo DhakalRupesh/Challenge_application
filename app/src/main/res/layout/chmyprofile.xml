@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingTop="20dp"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_myprofile_Image"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:elevation="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/profile_picture" />
+
+        <TextView
+            android:id="@+id/tv_myprofile_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_myprofile_Image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto"
+            android:textSize="19sp"
+            android:text="wackyjacky101"
+            android:textStyle="bold"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tv_myprofile_game_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500 BP"
+            android:fontFamily="@font/roboto"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/tv_myprofile_username"
+            android:layout_centerHorizontal="true"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_myprofile_game_points"
+            android:orientation="vertical"
+            android:layout_marginTop="-30dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/profilewavybanner"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_baseline_person_profile_24"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_myprofile_fullname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginTop="5dp"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginLeft="10dp"
+                        android:text="My Profile"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_baseline_email_24"/>
+
+                    <TextView
+                        android:id="@+id/tv_myprofile_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginTop="5dp"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginLeft="10dp"
+                        android:text="Email"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_baseline_contact_phone_24"/>
+
+                    <TextView
+                        android:id="@+id/tv_myprofile_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginTop="5dp"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginLeft="10dp"
+                        android:text="Phone"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="30dp">
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/img_profile_challenge"-->
+<!--                    android:layout_width="33dp"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:src="@drawable/target" />-->
+
+                <TextView
+                    android:id="@+id/tv_myprofile_challenge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="5dp"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/roboto"
+                    android:layout_marginLeft="10dp"
+                    android:text="Challenge"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                >
+
+                <TextView
+                    android:id="@+id/head_chpalyed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/head_ch"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Played"/>
+
+                <TextView
+                    android:id="@+id/myprofile_chpalyed_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"
+                    android:layout_below="@+id/head_chpalyed"
+                    android:fontFamily="@font/roboto"
+                    android:layout_marginLeft="10dp"
+                    android:text="100"/>
+
+                <TextView
+                    android:id="@+id/head_chWon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/head_ch"
+                    android:layout_toRightOf="@+id/head_chpalyed"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/roboto"
+                    android:layout_marginLeft="35dp"
+                    android:text="Won"/>
+
+                <TextView
+                    android:id="@+id/myprofile_chWon_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/head_chWon"
+                    android:layout_toRightOf="@+id/myprofile_chpalyed_info"
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/roboto"
+                    android:layout_marginLeft="50dp"
+                    android:text="80"/>
+
+                <TextView
+                    android:id="@+id/head_chLoss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@+id/head_chWon"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/roboto"
+                    android:layout_marginLeft="35dp"
+                    android:text="Loss"/>
+
+                <TextView
+                    android:id="@+id/myprofile_chLoss_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/head_chLoss"
+                    android:layout_toRightOf="@+id/myprofile_chWon_info"
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/roboto"
+                    android:layout_marginLeft="50dp"
+                    android:text="20"/>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

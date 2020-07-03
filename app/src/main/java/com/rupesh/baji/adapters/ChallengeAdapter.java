@@ -29,9 +29,7 @@ import java.util.List;
 public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ChallengeViewHolder> {
 
     Context mContext;
-    Activity mActivity;
     List<Challenge> challengeList;
-    Challenge mchallenge;
     private static User userme;
     private static final String TAG = "ChallengeAdapter";
 
@@ -70,18 +68,6 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Chal
             @Override
             public void onClick(View v) {
 
-//                try {
-////                    Bitmap bitmapChallengeImage = BitmapFactory.decodeResource(mContext.getResources(),
-////                            Integer.parseInt(challenge.getChImage()));
-//                    Bitmap bitmapChallengeImage = BitmapFactory.decodeResource(mContext.getResources(), Integer.parseInt(imagePathPost));
-//
-//                    Intent intent = new Intent(mContext, ChallengeDetail.class);
-//                    intent.putExtra("BitmapImage", bitmapChallengeImage);
-//
-//                } catch(NumberFormatException ex) {
-//
-//                }
-
                 Intent viewDetails = new Intent(mContext, ChallengeDetail.class);
 
                 Challenge challenge = challengeList.get(position);
@@ -90,6 +76,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Chal
 
                 viewDetails.putExtra("chID", challenge.get_id());
                 viewDetails.putExtra("challenger", user.getUname());
+                viewDetails.putExtra("userID", user.get_id());
                 viewDetails.putExtra("chEmail", user.getEmail());
                 viewDetails.putExtra("chType", challenge.getChType());
                 viewDetails.putExtra("chGame", challenge.getChGame());
@@ -117,7 +104,6 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.Chal
 
         ImageView imgGameProfile, imgViewDetail;
         TextView tvChallenger, tvGameName, tvBP, tvchId;
-        Button btnDetail;
         Context context;
         List<Challenge> list;
 

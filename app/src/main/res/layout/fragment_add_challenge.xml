@@ -5,29 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.AddChallenge"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:paddingHorizontal="25dp"
+    android:paddingVertical="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="25dp"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
             >
 
-            <TextView
-                android:id="@+id/tvInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="Create new Challenge"
-                android:textColor="@color/themeDark"
-                android:textSize="18sp" />
+<!--            <TextView-->
+<!--                android:id="@+id/tvInfo"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="5dp"-->
+<!--                android:text="Create new Challenge"-->
+<!--                android:textColor="@color/themeDark"-->
+<!--                android:textSize="18sp" />-->
 
             <EditText
                 android:id="@+id/et_challenge_type"

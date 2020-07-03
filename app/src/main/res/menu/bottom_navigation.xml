@@ -5,6 +5,7 @@
         android:title="Market"
         android:id="@+id/nav_Challenge_menu"
         android:icon="@drawable/ic_baseline_local_grocery_store_24"
+        android:textStyle= "bold"
         app:cnb_backgroundColor= "#283593"
         app:cnb_iconColor= "#fff"
         app:cnb_textColor="#fff"
@@ -13,7 +14,7 @@
     <item
         android:title="Home"
         android:id="@+id/nav_home_menu"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/ic_baseline_games_24"
         app:cnb_backgroundColor= "#283593"
         app:cnb_iconColor= "#fff"
         app:cnb_textColor="#fff"

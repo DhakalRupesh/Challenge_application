@@ -10,10 +10,24 @@
     android:background="#fff"
     >
 
-
-
     <TextView
         android:id="@+id/tv_details_chID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:textColor="@color/colorBlack" />
+
+    <TextView
+        android:id="@+id/tv_details_challengerID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:textColor="@color/colorBlack" />
+
+    <TextView
+        android:id="@+id/tv_Bnav_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
@@ -25,14 +39,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/curve_detail_view"
-        android:padding="10dp">
+        android:padding="20dp">
         
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="180dp"
             app:cardCornerRadius="30dp"
             android:elevation="10dp"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center">
 
             <ImageView
@@ -94,6 +107,7 @@
                 >
 
                 <TextView
+                    android:id="@+id/tv_details_challengerinfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Challenger"
@@ -270,9 +284,10 @@
         android:elevation="20dp"
         android:textStyle="bold"
         android:fontFamily="@font/roboto"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:layout_gravity="center_horizontal"
         android:textAllCaps="false"
+        android:visibility="visible"
         android:background="@drawable/custom_rounded_btn"
         android:backgroundTint="@color/btnGreen"
         android:textColor="#ffffff"/>

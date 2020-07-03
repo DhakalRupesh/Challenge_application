@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,9 +38,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static androidx.constraintlayout.widget.Constraints.TAG;
+
 public class ProfileEdit extends AppCompatActivity {
 
-    EditText etFullname, etUsername, etEmail;
+    EditText etFullname, etUsername, etEmail, etphone;
     Button btnUpdate;
     private String imageName = Bottom_nav.user.getProImg();
     private ImageView imgProfile;
@@ -55,6 +58,7 @@ public class ProfileEdit extends AppCompatActivity {
         etFullname = findViewById(R.id.et_ep_fullname);
         etEmail = findViewById(R.id.et_ep_email);
         etUsername = findViewById(R.id.et_ep_username);
+        etphone = findViewById(R.id.et_ep_phone);
 
 
         imgProfile = findViewById(R.id.img_ep_profile_Image);
@@ -83,9 +87,36 @@ public class ProfileEdit extends AppCompatActivity {
     }
 
     private void getUser() {
-        etFullname.setText(Bottom_nav.user.getFname());
-        etEmail.setText(Bottom_nav.user.getEmail());
-        etUsername.setText(Bottom_nav.user.getUname());
+        Useri useri = Url.getInstance().create(Useri.class);
+        Call<User> userCall = useri.getme(Url.token);
+
+        userCall.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(ProfileEdit.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "onResponse: imageError" + response.code());
+                    return;
+                }
+
+                User user = response.body();
+
+                etUsername.setText(user.getUname());
+                etFullname.setText(user.getFname());
+                etEmail.setText(user.getEmail());
+                etphone.setText(user.getPhone());
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e(TAG, "ofFailure" + t.getLocalizedMessage());
+            }
+        });
+
+//        etFullname.setText(Bottom_nav.user.getFname());
+//        etEmail.setText(Bottom_nav.user.getEmail());
+//        etUsername.setText(Bottom_nav.user.getUname());
+//        etphone.setText(Bottom_nav.user.getPhone());
 
         String imgPath = Url.imagePath + Bottom_nav.user.getProImg();
         Picasso.get().load(imgPath).into(imgProfile);
@@ -96,8 +127,9 @@ public class ProfileEdit extends AppCompatActivity {
         String fullname = etFullname.getText().toString().trim();
         String Email = etEmail.getText().toString().trim();
         String Username = etUsername.getText().toString().trim();
+        String Phone = etphone.getText().toString().trim();
 
-        User userUpdate = new User(fullname, Email, Username, imageName);
+        User userUpdate = new User(fullname, Email, Username, Phone, imageName);
 
         Useri useri = Url.getInstance().create(Useri.class);
         Call<User> updateCall = useri.updateProfile(Url.token, userUpdate);

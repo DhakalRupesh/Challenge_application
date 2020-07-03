@@ -117,7 +117,7 @@ public class Home extends Fragment {
     }
 
 
-    private void getAllChallenges(){
+    public void getAllChallenges(){
         Challengei allchallengei = Url.getInstance().create(Challengei.class);
         Call<List<Challenge>> listCall = allchallengei.getAllChallenges(Url.token);
 

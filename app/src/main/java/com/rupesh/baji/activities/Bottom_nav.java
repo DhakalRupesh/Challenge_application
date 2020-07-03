@@ -80,6 +80,8 @@ public class Bottom_nav extends AppCompatActivity {
 
         UserPermission();
         GetLoggedUserData();
+//        Home home = new Home();
+//        home.getAllChallenges();
     }
 
 //    private BottomNavigationView.OnNavigationItemSelectedListener selected_nav_items = new BottomNavigationView.OnNavigationItemSelectedListener() {

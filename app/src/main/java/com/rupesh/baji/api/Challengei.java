@@ -8,6 +8,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
@@ -35,6 +36,9 @@ public interface Challengei {
 
     @PUT("/challenge/{id}")
     Call<Void> updateChallengeStatus(@Path("id") String id, @Body Challenge upchallenge);
+
+    @DELETE("/challenge/{id}")
+    Call<Void> deleteMyChallenge(@Header("Authorization") String token, @Path("id") String id);
 
     @Multipart
     @POST("/uploads")

@@ -50,10 +50,11 @@ public class User {
         this.proImg = proImg;
     }
 
-    public User(String fname, String email, String uname, String proImg) {
+    public User(String fname, String email, String uname, String phone, String proImg) {
         this.fname = fname;
         this.email = email;
         this.uname = uname;
+        this.phone = phone;
         this.proImg = proImg;
     }
 
@@ -112,6 +113,14 @@ public class User {
 
     public void setAmt(String amt) {
         this.amt = amt;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getProImg() {

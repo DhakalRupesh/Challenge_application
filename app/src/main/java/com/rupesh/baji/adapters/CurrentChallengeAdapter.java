@@ -92,7 +92,7 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
 
     public class CurrentChallengeViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imgAcceptedchImage, imgDel;
+        ImageView imgAcceptedchImage;
         TextView tvChallenger, tvGameName, tvBP;
         Button btnPostResult;
         Context context;
@@ -102,7 +102,6 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
             super(itemView);
 
             imgAcceptedchImage = itemView.findViewById(R.id.img_accepted_game_image);
-//            imgDel = itemView.findViewById(R.id.img_accepted_delete);
 
             tvChallenger = itemView.findViewById(R.id.tv_accepted_challengerName);
             tvGameName = itemView.findViewById(R.id.tv_accepted_GameName);

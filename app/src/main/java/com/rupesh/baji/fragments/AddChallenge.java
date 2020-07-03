@@ -162,6 +162,9 @@ public class AddChallenge extends Fragment {
             img_ch_image.setImageURI(uri);
             imagePath = getRealPathFromUri(uri);
         }
+//        Uri uri = data.getData();
+//        img_ch_image.setImageURI(uri);
+//        imagePath = getRealPathFromUri(uri);
     }
 
     private String getRealPathFromUri(Uri uri) {

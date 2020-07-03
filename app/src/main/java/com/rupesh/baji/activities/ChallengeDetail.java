@@ -26,17 +26,19 @@ import retrofit2.Response;
 public class ChallengeDetail extends AppCompatActivity {
 
     ImageView imgChImage;
-    TextView tvChallenger, tvChType, tvChGame, tvChBP, tvChDescription, tvChTime, tvChDate, tvChid;
+    TextView tvChallenger, tvChallengerID, tvBnav, tvChType, tvChGame, tvChBP, tvChDescription, tvChTime, tvChDate, tvChid, tvChallenge;
     Button btnAcceptChallenge;
+    String userIDHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_challenge_detail);
 
-//        imgChImage = findViewById(R.id.img_details_ch_image);
-
+        tvChallenge = findViewById(R.id.tv_details_challengerinfo);
         tvChallenger = findViewById(R.id.tv_details_challenger);
+        tvChallengerID = findViewById(R.id.tv_details_challengerID);
+        tvBnav = findViewById(R.id.tv_Bnav_id);
         tvChType = findViewById(R.id.tv_details_chType);
         tvChGame = findViewById(R.id.tv_details_chGame);
         tvChBP = findViewById(R.id.tv_details_chBP);
@@ -45,11 +47,21 @@ public class ChallengeDetail extends AppCompatActivity {
         tvChDate = findViewById(R.id.tv_details_Date);
         tvChid = findViewById(R.id.tv_details_chID);
 
+        userIDHolder = Bottom_nav.user.get_id();
+
         btnAcceptChallenge = findViewById(R.id.btn_details_acceptChallenge);
 
         getDetails();
-
         getImage();
+
+
+        Bundle bundle1 = getIntent().getExtras();
+        String challengerID = bundle1.getString("userID");
+
+
+        if(userIDHolder == challengerID){
+            btnAcceptChallenge.setVisibility(View.INVISIBLE);
+        }
 
         btnAcceptChallenge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +94,29 @@ public class ChallengeDetail extends AppCompatActivity {
                 }
             }
         });
+
+        tvChallenge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentProfile = new Intent(ChallengeDetail.this, ChallengerProfile.class);
+
+                intentProfile.putExtra("challengerID", challengerID);
+
+                startActivity(intentProfile);
+            }
+        });
+
+        tvChallenger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentProfile = new Intent(ChallengeDetail.this, ChallengerProfile.class);
+
+                intentProfile.putExtra("challengerID", challengerID);
+
+                startActivity(intentProfile);
+            }
+        });
+
     }
 
     public void getImage(){
@@ -98,7 +133,6 @@ public class ChallengeDetail extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Challenge challenge = response.body();
                 String imgPath = Url.imagePath + response.body().getChImage();
 
                 ImageView challengeImage = findViewById(R.id.img_details_ch_image);
@@ -123,6 +157,7 @@ public class ChallengeDetail extends AppCompatActivity {
         if(bundle != null) {
             String chId = bundle.getString("chID");
             String challenger = bundle.getString("challenger");
+//            String challengerID = bundle.getString("userID");
             String chEmail = bundle.getString("chEmail");
             String chType = bundle.getString("chType");
             String chGame = bundle.getString("chGame");
@@ -133,6 +168,7 @@ public class ChallengeDetail extends AppCompatActivity {
 
 
             tvChid.setText(chId);
+//            tvChallengerID.setText(challengerID + "ChallengerID");
             tvChallenger.setText(challenger);
             tvChType.setText(chType);
             tvChBP.setText(chBp);
