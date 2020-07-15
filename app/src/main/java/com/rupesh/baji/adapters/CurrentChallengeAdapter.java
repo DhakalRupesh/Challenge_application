@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rupesh.baji.R;
+import com.rupesh.baji.activities.Bottom_nav;
 import com.rupesh.baji.helper.ChallengeDialog;
 import com.rupesh.baji.model.Challenge;
 import com.rupesh.baji.model.User;
@@ -61,6 +62,14 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
         holder.tvGameName.setText(challenge.getChGame());
         holder.tvBP.setText(challenge.getChAmt());
 
+//        holder.btnPostResult.setVisibility(View.GONE);
+        Thread btnThread = new Thread() {
+            @Override
+            public void run() {
+                
+            }
+        };
+
         holder.btnPostResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +85,7 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
                 args.putString("chID", challenge.get_id());
                 args.putString("acceptedBY", user.get_id());
                 args.putString("challenger", user1.get_id());
+                args.putString("currentUsr", Bottom_nav.user.get_id());
 
                 ChallengeDialog challengeDialog = new ChallengeDialog();
                 challengeDialog.setArguments(args);

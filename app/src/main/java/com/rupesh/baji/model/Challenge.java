@@ -44,6 +44,10 @@ public class Challenge {
         this.status = status;
     }
 
+    public Challenge(String _id){
+        this._id = _id;
+    }
+
     // GS
     public String get_id() {
         return _id;

@@ -144,8 +144,8 @@
 
                 <ImageView
                     android:id="@+id/btn_moreinfo_Challenge"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:src="@drawable/next64"
                     android:clickable="true"
                     android:fontFamily="@font/roboto"
@@ -155,8 +155,8 @@
 
                 <ImageView
                     android:id="@+id/btn_delete_myChallenge"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
                     android:src="@drawable/delete"
                     android:layout_marginLeft="10dp"
                     android:elevation="5dp"

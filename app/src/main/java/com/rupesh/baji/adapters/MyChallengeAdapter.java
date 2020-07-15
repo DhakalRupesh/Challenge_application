@@ -67,28 +67,28 @@ public class MyChallengeAdapter extends RecyclerView.Adapter<MyChallengeAdapter.
         holder.tvGameName.setText(challenge.getChGame());
         holder.tvBP.setText(challenge.getChAmt());
 
-//        holder.imgViewDetail.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent viewDetails = new Intent(mContext, ChallengeDetail.class);
-//
-//                Challenge challenge = challengeList.get(position);
-//                User user;
-//                user = challenge.getChBy();
-//
-//                viewDetails.putExtra("chID", challenge.get_id());
-//                viewDetails.putExtra("challenger", user.getUname());
-//                viewDetails.putExtra("chEmail", user.getEmail());
-//                viewDetails.putExtra("chType", challenge.getChType());
-//                viewDetails.putExtra("chGame", challenge.getChGame());
-//                viewDetails.putExtra("chBP", challenge.getChAmt());
-//                viewDetails.putExtra("chDesc", challenge.getChDesc());
-//                viewDetails.putExtra("chTime", challenge.getChTime());
-//                viewDetails.putExtra("chDate", challenge.getChDate());
-//
-//                mContext.startActivity(viewDetails);
-//            }
-//        });
+        holder.imgViewDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewDetails = new Intent(mContext, ChallengeDetail.class);
+
+                Challenge challenge = challengeList.get(position);
+                User user;
+                user = challenge.getChBy();
+
+                viewDetails.putExtra("chID", challenge.get_id());
+                viewDetails.putExtra("challenger", user.getUname());
+                viewDetails.putExtra("chEmail", user.getEmail());
+                viewDetails.putExtra("chType", challenge.getChType());
+                viewDetails.putExtra("chGame", challenge.getChGame());
+                viewDetails.putExtra("chBP", challenge.getChAmt());
+                viewDetails.putExtra("chDesc", challenge.getChDesc());
+                viewDetails.putExtra("chTime", challenge.getChTime());
+                viewDetails.putExtra("chDate", challenge.getChDate());
+
+                mContext.startActivity(viewDetails);
+            }
+        });
 
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
 

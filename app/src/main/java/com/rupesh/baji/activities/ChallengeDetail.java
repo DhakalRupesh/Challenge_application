@@ -59,9 +59,9 @@ public class ChallengeDetail extends AppCompatActivity {
         String challengerID = bundle1.getString("userID");
 
 
-        if(userIDHolder == challengerID){
-            btnAcceptChallenge.setVisibility(View.INVISIBLE);
-        }
+//        if(userIDHolder == challengerID){
+//            btnAcceptChallenge.setVisibility(View.INVISIBLE);
+//        }
 
         btnAcceptChallenge.setOnClickListener(new View.OnClickListener() {
             @Override

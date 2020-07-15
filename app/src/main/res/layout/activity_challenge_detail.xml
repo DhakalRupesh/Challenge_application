@@ -287,7 +287,6 @@
         android:layout_marginTop="25dp"
         android:layout_gravity="center_horizontal"
         android:textAllCaps="false"
-        android:visibility="visible"
         android:background="@drawable/custom_rounded_btn"
         android:backgroundTint="@color/btnGreen"
         android:textColor="#ffffff"/>
