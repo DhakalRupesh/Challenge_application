@@ -4,17 +4,248 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.Store"
-    android:background="#fff"
     android:paddingTop="20dp"
-    android:paddingHorizontal="20dp">
+    android:paddingHorizontal="20dp"
+    android:background="@color/colorBg"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Best Value"
+        android:textSize="20sp"
+        android:textColor="@color/colorWhiteHeading"
+        android:fontFamily="@font/oswald"
+        android:layout_marginBottom="20dp"/>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/marketrectangle"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/coinimg1"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RS"
+                android:layout_gravity="center_horizontal"
+                android:textSize="30sp"
+                android:fontFamily="@font/oswald"
+                android:textColor="@color/colorWhiteSub"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="300"
+                android:textSize="30sp"
+                android:fontFamily="@font/oswald"
+                android:textColor="@color/colorWhiteSub"
+                />
 
+        </LinearLayout>
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/coinimg1"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:src="@drawable/coin"
+            android:layout_centerInParent="true"/>
+
+        <LinearLayout
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/coinimg1"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200"
+                android:textSize="30sp"
+                android:fontFamily="@font/oswald"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorWhiteSub"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BP"
+                android:textSize="30sp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/oswald"
+                android:textColor="@color/colorWhiteSub"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Popular"
+        android:textSize="20sp"
+        android:fontFamily="@font/oswald"
+        android:textColor="@color/colorWhiteHeading"
+        android:layout_marginVertical="20dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    >
+
+        <LinearLayout
+            android:id="@+id/llpp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/marketrectangle"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/coin"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45 BP - RS 50"
+                android:layout_marginTop="10dp"
+                android:textSize="16dp"
+                android:fontFamily="@font/oswald"
+                android:textColor="@color/colorWhiteSub"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llpp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/marketrectangle"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:layout_alignParentEnd="true"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:src="@drawable/coin"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="55 BP - RS 60"
+                android:layout_marginTop="10dp"
+                android:textSize="16dp"
+                android:fontFamily="@font/oswald"
+                android:textColor="@color/colorWhiteSub"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Heavy Value"
+        android:textSize="20sp"
+        android:fontFamily="@font/oswald"
+        android:textColor="@color/colorWhiteHeading"
+        android:layout_marginVertical="20dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/marketrectangle"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/coinimg2"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RS"
+                android:layout_gravity="center_horizontal"
+                android:textSize="30sp"
+                android:fontFamily="@font/oswald"
+                android:textColor="@color/colorWhiteSub"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="1500"
+                android:textSize="30sp"
+                android:fontFamily="@font/oswald"
+                android:textColor="@color/colorWhiteSub"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/coinimg2"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:src="@drawable/coin"
+            android:layout_centerInParent="true"/>
+
+        <LinearLayout
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/coinimg2"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1350"
+                android:textSize="30sp"
+                android:fontFamily="@font/oswald"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorWhiteSub"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BP"
+                android:textSize="30sp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/oswald"
+                android:textColor="@color/colorWhiteSub"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
 
 </LinearLayout>

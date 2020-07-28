@@ -2,6 +2,7 @@ package com.rupesh.baji.helper;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.rupesh.baji.R;
 import com.rupesh.baji.activities.Bottom_nav;
 import com.rupesh.baji.api.Challengei;
 import com.rupesh.baji.api.Resulti;
+import com.rupesh.baji.fragments.CurrentChallenges;
 import com.rupesh.baji.model.Challenge;
 import com.rupesh.baji.model.Result;
 import com.rupesh.baji.model.User;
@@ -91,46 +93,68 @@ public class ChallengeDialog extends AppCompatDialogFragment {
     public void PostResult() {
 
         Bundle mArgs = getArguments();
-        String oppID = mArgs.getString("challenger");
-        String currentUser = mArgs.getString("currentUsr");
-        String challenge_id = mArgs.getString("chID");
 
-
-//        String challengeWonBy = new User(currentUser+);
-//        Challenge challengeWon = new Challenge(challenge_id);
-//        User challenger = new User(oppID);
-//        User confirmationBy = new User(currentUser);
+        User wonBy  = new User(Bottom_nav.user.get_id());
+        Challenge ChallengeWon = new Challenge(mArgs.getString("chID"));
+//        User ChBy = new User(mArgs.getString("challenger"));
+        User chacceptedBy = new User(mArgs.getString("acceptedBY"));
+        User confirmationSendBy = new User(Bottom_nav.user.get_id());
 
         String confirmationType = "waiting";
         String imageProofing = "image goes here";
 
 //        Result postResult = new Result(
-//                challengeWonBy, challengeWon, challenger, confirmationBy, confirmationType, imageProofing
+//                wonBy, ChallengeWon , chacceptedBy, confirmationSendBy, confirmationType, imageProofing
 //        );
 
-        Result postResult = new Result(
-                currentUser, challenge_id, oppID, currentUser, confirmationType, imageProofing
-        );
+//        Resulti myResultAPI = Url.getInstance().create(Resulti.class);
+//        Call<Void> myResultCall = myResultAPI.submitResult(postResult);
 
-        Resulti myResultAPI = Url.getInstance().create(Resulti.class);
-        Call<Void> myResultCall = myResultAPI.submitResult(postResult);
+        Challenge updateChallenge = new Challenge(wonBy, confirmationSendBy, confirmationType, imageProofing);
+        Bundle mArgss = getArguments();
+        String challengeId = mArgss.getString("chID");
 
-        myResultCall.enqueue(new Callback<Void>() {
+        Challengei challengeiUpdate = Url.getInstance().create(Challengei.class);
+        Call<Void> myChallengeCall = challengeiUpdate.updateResVerification(challengeId, updateChallenge);
+
+        myChallengeCall.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(getContext(), "Error !!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Toast.makeText(getContext(), "Result verification send", Toast.LENGTH_SHORT).show();
+                return;
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Toast.makeText(getContext(), "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                return;
             }
         });
 
-    }
-
-    private void setSpinnerValue() {
-        Challengei spinnerChallenge = Url.getInstance().create(Challengei.class);
+//        myResultCall.enqueue(new Callback<Void>() {
+//            @Override
+//            public void onResponse(Call<Void> call, Response<Void> response) {
+//                if (!response.isSuccessful()) {
+//                    Toast.makeText(getContext(), "Error !!", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//
+//                Toast.makeText(getContext(), "Result verification send", Toast.LENGTH_SHORT).show();
+//
+//                getActivity().finish();
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Void> call, Throwable t) {
+//                Toast.makeText(getContext(), "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//        });
 
     }
 

@@ -159,8 +159,6 @@ public class Bottom_nav extends AppCompatActivity {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 user = response.body();
-//                String imgPath = Url.imagePath + response.body().getProImg();
-//                Picasso.get().load(imgPath);
             }
 
             @Override

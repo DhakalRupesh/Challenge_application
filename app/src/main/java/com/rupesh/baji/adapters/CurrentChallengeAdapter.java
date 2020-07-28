@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import com.rupesh.baji.R;
 import com.rupesh.baji.activities.Bottom_nav;
 import com.rupesh.baji.helper.ChallengeDialog;
 import com.rupesh.baji.model.Challenge;
+import com.rupesh.baji.model.Result;
 import com.rupesh.baji.model.User;
 import com.rupesh.baji.url.Url;
 import com.squareup.picasso.Picasso;
@@ -62,14 +64,6 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
         holder.tvGameName.setText(challenge.getChGame());
         holder.tvBP.setText(challenge.getChAmt());
 
-//        holder.btnPostResult.setVisibility(View.GONE);
-        Thread btnThread = new Thread() {
-            @Override
-            public void run() {
-                
-            }
-        };
-
         holder.btnPostResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,7 +98,7 @@ public class CurrentChallengeAdapter extends RecyclerView.Adapter<CurrentChallen
 
         ImageView imgAcceptedchImage;
         TextView tvChallenger, tvGameName, tvBP;
-        Button btnPostResult;
+        Button btnPostResult, btn_accepted_Challenge_verify;
         Context context;
         List<Challenge> list;
 

@@ -22,7 +22,6 @@
         <activity android:name=".activities.ChallengerProfile"></activity>
         <activity android:name=".activities.MyProfile" />
         <activity android:name=".activities.Challenge" />
-        <activity android:name=".activities.YourChallenge" />
         <activity android:name=".activities.ChallengeDetail" />
         <activity android:name=".activities.ProfileEdit" />
         <activity android:name=".activities.Bottom_nav" />

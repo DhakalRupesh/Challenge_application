@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.AddChallenge"
-    android:background="#ffffff"
+    android:background="@color/colorBg"
     android:paddingHorizontal="25dp"
     android:paddingVertical="10dp">
 
@@ -23,25 +23,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!--            <TextView-->
-                <!--                android:id="@+id/tvInfo"-->
-                <!--                android:layout_width="wrap_content"-->
-                <!--                android:layout_height="wrap_content"-->
-                <!--                android:layout_marginLeft="5dp"-->
-                <!--                android:text="Create new Challenge"-->
-                <!--                android:textColor="@color/themeDark"-->
-                <!--                android:textSize="18sp" />-->
 
                 <EditText
                     android:id="@+id/et_challenge_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/custom_et"
                     android:drawableLeft="@drawable/ic_baseline_merge_type_24"
                     android:drawablePadding="8dp"
-                    android:fontFamily="@font/roboto"
-                    android:hint="Challenge Type: eg - 1v1 2v2 tdm..." />
+                    android:hint="Challenge Type: eg - 1v1 2v2 tdm..."
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorWhiteSub"
+                    android:background="@drawable/custom_et"
+                    android:textColorHint="@color/colorWhiteSub"
+                    />
 
                 <EditText
                     android:id="@+id/et_challenge_game"
@@ -51,7 +46,9 @@
                     android:background="@drawable/custom_et"
                     android:drawableLeft="@drawable/ic_baseline_games_24"
                     android:drawablePadding="8dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorWhiteSub"
+                    android:textColorHint="@color/colorWhiteSub"
                     android:hint="Challenge Game: eg - pubg fifa f1" />
 
                 <EditText
@@ -62,7 +59,9 @@
                     android:background="@drawable/custom_et"
                     android:drawableLeft="@drawable/ic_baseline_control_point_24"
                     android:drawablePadding="8dp"
-                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/colorWhiteSub"
+                    android:textColorHint="@color/colorWhiteSub"
+                    android:fontFamily="@font/oswald"
                     android:hint="Challenge point: this is the BP"
                     android:inputType="number" />
 
@@ -74,12 +73,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/custom_et"
+                    android:textColorHint="@color/colorWhiteSub"
                     android:clickable="true"
                     android:drawableLeft="@drawable/ic_baseline_date_range_24"
                     android:drawablePadding="8dp"
                     android:editable="false"
                     android:focusable="false"
-                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/colorWhiteSub"
+                    android:fontFamily="@font/oswald"
                     android:hint="Challenge Date" />
 
 
@@ -88,13 +89,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:textColorHint="@color/colorWhiteSub"
                     android:background="@drawable/custom_et"
                     android:clickable="true"
                     android:drawableLeft="@drawable/ic_baseline_access_time_24"
                     android:drawablePadding="8dp"
                     android:editable="false"
                     android:focusable="false"
-                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/colorWhiteSub"
+                    android:fontFamily="@font/oswald"
                     android:hint="Challenge Time" />
 
                 <EditText
@@ -102,11 +105,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="95dp"
                     android:layout_marginTop="15dp"
+                    android:textColorHint="@color/colorWhiteSub"
+                    android:fontFamily="@font/oswald"
                     android:background="@drawable/custom_et"
                     android:drawableLeft="@drawable/ic_baseline_more_24"
                     android:drawablePadding="8dp"
-                    android:fontFamily="@font/roboto"
                     android:hint="Challenge Description"
+                    android:textColor="@color/colorWhiteSub"
                     android:inputType="textMultiLine" />
 
                 <TextView
@@ -115,6 +120,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/et_ep_username"
                     android:layout_marginTop="15dp"
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorWhiteSub"
                     android:text="select challenged game image" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -133,7 +140,8 @@
                     android:background="@drawable/custom_rounded_btn"
                     android:text="Add Challenge"
                     android:textAllCaps="false"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/colorWhiteSub"
+                    android:fontFamily="@font/oswald"
 
                     />
 

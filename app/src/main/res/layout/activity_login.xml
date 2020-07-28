@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="@color/colorBg"
     tools:context=".activities.Login"
     android:padding="25dp">
 
@@ -22,16 +22,16 @@
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/beticon" />
+            android:src="@drawable/appicon21" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-9dp"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/oswald"
             android:text="Let's play"
-            android:textColor="@color/colorBlack"
-            android:textSize="35sp"
+            android:textColor="@color/colorWhiteHeading"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -52,8 +52,9 @@
             android:drawableLeft="@drawable/ic_baseline_person_profile_24"
             android:background="@drawable/custom_et"
             android:drawablePadding="8dp"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/textXmlColor"
+            android:fontFamily="@font/oswald"
+            android:textColor="@color/colorWhiteSub"
+            android:textColorHint="@color/colorWhiteSub"
             android:hint="Username"
             android:inputType="textPersonName"
              />
@@ -66,8 +67,9 @@
             android:drawableLeft="@drawable/ic_baseline_lock_24"
             android:background="@drawable/custom_et"
             android:drawablePadding="8dp"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/textXmlColor"
+            android:fontFamily="@font/oswald"
+            android:textColor="@color/colorWhiteSub"
+            android:textColorHint="@color/colorWhiteSub"
             android:hint="password"
             android:inputType="textPassword"
             />
@@ -79,7 +81,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/custom_rounded_btn"
             android:elevation="10dp"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/oswald"
             android:paddingHorizontal="40dp"
             android:text="Login"
             android:textAllCaps="false"
@@ -92,10 +94,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
+            android:textSize="15sp"
             android:clickable="true"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/oswald"
             android:text="Sign-up here"
-            android:textColor="#757575" />
+            android:textColor="@color/colorWhiteSub" />
 
     </LinearLayout>
 

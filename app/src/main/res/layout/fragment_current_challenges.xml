@@ -5,14 +5,26 @@
     android:layout_height="match_parent"
     tools:context=".fragments.CurrentChallenges"
     android:orientation="vertical"
-    android:paddingHorizontal="15dp">
+    android:paddingHorizontal="15dp"
+    android:background="@color/colorBg">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/oswald"
+        android:textColor="@color/colorWhiteSub"
+        android:textSize="14sp"
+        android:layout_gravity="center_horizontal"
+        android:text="My current Challenge list"
+         />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_accepted_challenge"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="15dp"/>
 
 
 </LinearLayout>

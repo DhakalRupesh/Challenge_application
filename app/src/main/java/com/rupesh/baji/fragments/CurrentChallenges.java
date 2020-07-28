@@ -31,7 +31,6 @@ public class CurrentChallenges extends Fragment {
     CurrentChallengeAdapter currentChallengeAdapter;
     private static final String TAG = "AcceptedChallenge";
     public RecyclerView rvAcceptedChallenge;
-    Button btnAddNewChallenge;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,29 +68,5 @@ public class CurrentChallenges extends Fragment {
                 Log.e(TAG, "onFailureHome: " + t.getLocalizedMessage());
             }
         });
-
-//        final Challengei AcceptedChallenge = Url.getInstance().create(Challengei.class);
-//        Call<List<Challenge>> AcceptedChallengelistCall = AcceptedChallenge.getAcceptedChallenges(Url.token);
-//
-//        AcceptedChallengelistCall.enqueue(new Callback<List<Challenge>>() {
-//            @Override
-//            public void onResponse(Call<List<Challenge>> call, Response<List<Challenge>> response) {
-//                if(!response.isSuccessful()){
-//                    Toast.makeText(AcceptedChallenge.this, "Error", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                challengeList = response.body();
-//                currentChallengeAdapter = new CurrentChallengeAdapter(AcceptedChallenge.this, challengeList);
-//                rvAcceptedChallenge.setAdapter(currentChallengeAdapter);
-//                rvAcceptedChallenge.setLayoutManager(new LinearLayoutManager(AcceptedChallenge.this));
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Challenge>> call, Throwable t) {
-//                Toast.makeText(AcceptedChallenge.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-//                Log.e(TAG, "onFailureHome: " + t.getLocalizedMessage());
-//            }
-//        });
-
     }
 }

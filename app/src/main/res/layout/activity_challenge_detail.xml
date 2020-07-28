@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.ChallengeDetail"
     android:orientation="vertical"
-    android:background="#fff"
+    android:background="@drawable/detailgradient"
     >
 
     <TextView
@@ -38,36 +38,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/curve_detail_view"
-        android:padding="20dp">
-        
-        <androidx.cardview.widget.CardView
+        >
+
+        <ImageView
+            android:id="@+id/img_details_ch_image"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            app:cardCornerRadius="30dp"
-            android:elevation="10dp"
-            android:layout_gravity="center">
-
-            <ImageView
-                android:id="@+id/img_details_ch_image"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/fortnite" />
-
-        </androidx.cardview.widget.CardView>
+            android:scaleType="centerCrop"
+            android:src="@drawable/fortnite" />
 
         <TextView
             android:id="@+id/tv_details_chGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:text="Fortnight"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/oswald"
             android:layout_gravity="center"
             android:textStyle="bold"
-            android:textColor="@color/colorBlack" />
+            android:textColor="@color/colorOrange" />
 
         <TextView
             android:id="@+id/tv_details_chDesc"
@@ -76,9 +66,9 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
-            android:fontFamily="@font/roboto"
-            android:text="I am challenging for team death match for
-                           the highest kills in best of 3 round."
+            android:textColor="@color/colorWhiteSub"
+            android:fontFamily="@font/oswald"
+            android:text="I am challenging for team death match for the highest kills in best of 3 round."
             android:textAlignment="center"
             android:textSize="18sp" />
 
@@ -113,17 +103,17 @@
                     android:text="Challenger"
                     android:textSize="18dp"
                     android:textStyle="bold"
-                    android:fontFamily="@font/roboto"
-                    android:textColor="@color/colorBlack" />
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorOrange" />
 
                 <TextView
                     android:id="@+id/tv_details_challenger"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/oswald"
                     android:textSize="16sp"
                     android:text="Wackyjacky101"
-                    android:textColor="@color/lightText" />
+                    android:textColor="@color/colorWhiteSub" />
 
             </LinearLayout>
 
@@ -131,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="17dp"
                 >
 
                 <TextView
@@ -139,18 +129,18 @@
                     android:layout_height="match_parent"
                     android:text="Type"
                     android:textSize="18dp"
-                    android:fontFamily="@font/roboto"
                     android:textStyle="bold"
-                    android:textColor="@color/colorBlack" />
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorOrange" />
 
                 <TextView
                     android:id="@+id/tv_details_chType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/oswald"
                     android:textSize="16sp"
                     android:text="Wackyjacky101"
-                    android:textColor="@color/lightText" />
+                    android:textColor="@color/colorWhiteSub" />
 
             </LinearLayout>
 
@@ -158,26 +148,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="17dp"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="Challenge Date"
-                    android:fontFamily="@font/roboto"
                     android:textSize="18dp"
                     android:textStyle="bold"
-                    android:textColor="@color/colorBlack" />
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorOrange" />
 
                 <TextView
                     android:id="@+id/tv_details_Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/oswald"
                     android:textSize="16sp"
                     android:text="Wackyjacky101"
-                    android:textColor="@color/lightText" />
+                    android:textColor="@color/colorWhiteSub" />
 
             </LinearLayout>
 
@@ -202,18 +192,18 @@
                     android:layout_height="wrap_content"
                     android:text="Challenge BP"
                     android:textSize="18dp"
-                    android:fontFamily="@font/roboto"
                     android:textStyle="bold"
-                    android:textColor="@color/colorBlack" />
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorOrange"/>
 
                 <TextView
                     android:id="@+id/tv_details_chBP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/oswald"
                     android:text="500"
-                    android:textColor="@color/lightText" />
+                    android:textColor="@color/colorWhiteSub" />
 
             </LinearLayout>
 
@@ -222,7 +212,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="17dp"
                 >
 
                 <TextView
@@ -230,18 +220,18 @@
                     android:layout_height="match_parent"
                     android:text="Challenge Time"
                     android:textSize="18dp"
-                    android:fontFamily="@font/roboto"
                     android:textStyle="bold"
-                    android:textColor="@color/colorBlack" />
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorOrange" />
 
                 <TextView
                     android:id="@+id/tv_details_chTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/oswald"
                     android:text="Wackyjacky101"
-                    android:textColor="@color/lightText" />
+                    android:textColor="@color/colorWhiteSub" />
 
             </LinearLayout>
 
@@ -249,7 +239,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="17dp"
                 >
 
                 <TextView
@@ -257,18 +247,18 @@
                     android:layout_height="match_parent"
                     android:text="Conversion"
                     android:textSize="18dp"
-                    android:fontFamily="@font/roboto"
                     android:textStyle="bold"
-                    android:textColor="@color/colorBlack" />
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorOrange" />
 
                 <TextView
                     android:id="@+id/tv_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/oswald"
                     android:text="RS 10 /-"
-                    android:textColor="@color/lightText" />
+                    android:textColor="@color/colorWhiteSub" />
 
             </LinearLayout>
 
@@ -278,17 +268,16 @@
 
     <Button
         android:id="@+id/btn_details_acceptChallenge"
-        android:layout_width="115dp"
+        android:layout_width="315dp"
         android:layout_height="wrap_content"
         android:text="Accept"
         android:elevation="20dp"
         android:textStyle="bold"
-        android:fontFamily="@font/roboto"
-        android:layout_marginTop="25dp"
+        android:fontFamily="@font/oswald"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"
         android:textAllCaps="false"
         android:background="@drawable/custom_rounded_btn"
-        android:backgroundTint="@color/btnGreen"
         android:textColor="#ffffff"/>
 
 

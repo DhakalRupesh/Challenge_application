@@ -14,6 +14,7 @@ import com.rupesh.baji.adapters.ViewPageAdapterChallenge;
 import com.rupesh.baji.fragments.AddChallenge;
 import com.rupesh.baji.fragments.CurrentChallenges;
 import com.rupesh.baji.fragments.MyChallenges;
+import com.rupesh.baji.fragments.Result_Verification;
 
 public class Challenge extends AppCompatActivity {
     private ViewPager viewPager;
@@ -32,9 +33,10 @@ public class Challenge extends AppCompatActivity {
 
         ViewPageAdapterChallenge viewPageAdapter = new ViewPageAdapterChallenge(getSupportFragmentManager());
 
-        viewPageAdapter.addFragment(new AddChallenge(), "New Challenge");
-        viewPageAdapter.addFragment(new MyChallenges(), "My Challenges");
+        viewPageAdapter.addFragment(new AddChallenge(), "New");
+        viewPageAdapter.addFragment(new MyChallenges(), "My");
         viewPageAdapter.addFragment(new CurrentChallenges(), "Ongoing");
+        viewPageAdapter.addFragment(new Result_Verification(),"Verify");
 
         viewPager.setAdapter(viewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);

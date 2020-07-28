@@ -5,45 +5,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@color/colorBg"
     android:padding="25dp"
     tools:context=".activities.Signup">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="25dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="100dp"
-            android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/beticon" />
+            android:layout_marginTop="20dp"
+            android:src="@drawable/appicon21" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-9dp"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/oswald"
             android:text="Join us"
-            android:textColor="@color/colorBlack"
-            android:textSize="35sp"
+            android:textColor="@color/colorWhiteHeading"
+            android:textSize="40sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/et_fullname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
             android:background="@drawable/custom_et"
             android:drawableLeft="@drawable/ic_baseline_account_box_24"
             android:drawablePadding="8dp"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/textXmlColor"
-            android:layout_marginTop="110dp"
-            android:inputType="textPersonName"
+            android:fontFamily="@font/oswald"
             android:hint="Full name"
-            />
+            android:inputType="textPersonName"
+            android:textColor="@color/colorWhiteSub"
+            android:textColorHint="@color/colorWhiteSub" />
 
         <EditText
             android:id="@+id/et_email"
@@ -53,11 +55,11 @@
             android:background="@drawable/custom_et"
             android:drawableLeft="@drawable/ic_baseline_email_24"
             android:drawablePadding="8dp"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/textXmlColor"
-            android:inputType="textPersonName"
+            android:fontFamily="@font/oswald"
             android:hint="Email"
-            />
+            android:inputType="textPersonName"
+            android:textColor="@color/colorWhiteSub"
+            android:textColorHint="@color/colorWhiteSub" />
 
         <EditText
             android:id="@+id/et_username"
@@ -67,11 +69,11 @@
             android:background="@drawable/custom_et"
             android:drawableLeft="@drawable/ic_baseline_person_profile_24"
             android:drawablePadding="8dp"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/textXmlColor"
-            android:inputType="textPersonName"
+            android:fontFamily="@font/oswald"
             android:hint="Username"
-            />
+            android:inputType="textPersonName"
+            android:textColor="@color/colorWhiteSub"
+            android:textColorHint="@color/colorWhiteSub" />
 
         <EditText
             android:id="@+id/et_password"
@@ -81,60 +83,58 @@
             android:background="@drawable/custom_et"
             android:drawableLeft="@drawable/ic_baseline_lock_24"
             android:drawablePadding="8dp"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/textXmlColor"
+            android:fontFamily="@font/oswald"
             android:hint="password"
             android:inputType="textPassword"
-            />
+            android:textColor="@color/colorWhiteSub"
+            android:textColorHint="@color/colorWhiteSub" />
 
         <TextView
             android:id="@+id/et_ep_info_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/et_ep_username"
-            android:textColor="@color/textXmlColor"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/oswald"
             android:text="select profile image"
-            />
+            android:textColor="@color/colorWhiteSub" />
 
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_register_profile_Image"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
             android:layout_below="@+id/et_ep_info_text"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="2dp"
-            android:src="@drawable/ic_add_photo_24dp"
-            />
+            android:src="@drawable/ic_add_photo_24dp" />
 
         <Button
             android:id="@+id/btn_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/custom_rounded_btn"
             android:elevation="10dp"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/oswald"
             android:paddingHorizontal="40dp"
             android:text="Sign-up"
             android:textAllCaps="false"
             android:textColor="#fff"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_goToLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Log-in here"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
+            android:textSize="15sp"
             android:clickable="true"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/textXmlColor"
-            />
+            android:fontFamily="@font/oswald"
+            android:text="Log-in here"
+            android:textColor="@color/colorWhiteSub" />
 
     </LinearLayout>
 

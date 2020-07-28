@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.Profile"
-    android:background="#fff">
+    android:background="@color/colorBg">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,12 +27,11 @@
             android:id="@+id/img_profile_logout"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
             android:clickable="true"
             android:elevation="10dp"
-            android:layout_marginRight="30dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/logoutround"
-            />
+            android:src="@drawable/logout" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_profile_Image"
@@ -50,18 +49,19 @@
             android:layout_below="@id/img_profile_Image"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/oswald"
             android:textSize="19sp"
             android:text="wackyjacky101"
             android:textStyle="bold"
-            android:textColor="#000000" />
+            android:textColor="@color/colorWhiteHeading" />
 
         <TextView
             android:id="@+id/tv_profile_game_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="500 BP"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/oswald"
+            android:textColor="@color/colorWhiteSub"
             android:layout_marginTop="5dp"
             android:layout_below="@id/tv_profile_username"
             android:layout_centerHorizontal="true"/>
@@ -77,7 +77,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:src="@drawable/profilewavybanner"/>
+                android:src="@drawable/profilewavy"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -103,10 +103,10 @@
                         android:id="@+id/tv_profile_myprofile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorWhiteSub"
                         android:layout_marginTop="5dp"
                         android:textSize="18sp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/oswald"
                         android:layout_marginLeft="10dp"
                         android:text="My Profile"/>
 
@@ -128,10 +128,10 @@
                         android:id="@+id/tv_profile_redeem_cash"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorWhiteSub"
                         android:layout_marginTop="5dp"
                         android:textSize="18sp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/oswald"
                         android:layout_marginLeft="10dp"
                         android:text="Redeem"/>
 
@@ -148,16 +148,16 @@
                         android:id="@+id/img_profile_challenge"
                         android:layout_width="33dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/target" />
+                        android:src="@drawable/targets" />
 
                     <TextView
                         android:id="@+id/tv_profile_challenge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorWhiteSub"
                         android:layout_marginTop="5dp"
                         android:textSize="18sp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/oswald"
                         android:layout_marginLeft="10dp"
                         android:text="Challenge"/>
 
@@ -179,10 +179,10 @@
                         android:id="@+id/tv_profile_settings"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorWhiteSub"
                         android:layout_marginTop="5dp"
                         android:textSize="18sp"
-                        android:fontFamily="@font/roboto"
+                        android:fontFamily="@font/oswald"
                         android:layout_marginLeft="10dp"
                         android:text="Settings"/>
 

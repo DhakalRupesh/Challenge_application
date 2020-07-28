@@ -26,6 +26,7 @@
         android:icon="@drawable/ic_person_black_24dp"
         app:cnb_backgroundColor= "#283593"
         app:cnb_iconColor= "#fff"
+        android:fontFamily="@font/oswald"
         app:cnb_textColor="#fff"
         />
 

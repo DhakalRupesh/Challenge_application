@@ -44,4 +44,9 @@ public interface Challengei {
     @POST("/uploads")
     Call<ImageResponse> uploadChallengeImage(@Part MultipartBody.Part img);
 
+    @PUT("/challenge/{id}")
+    Call<Void> updateResVerification(@Path("id") String id, @Body Challenge upchallenge);
+
+    @GET("/challenge/resverify")
+    Call<List<Challenge>> getChallengeForVerification(@Header("Authorization") String token);
 }

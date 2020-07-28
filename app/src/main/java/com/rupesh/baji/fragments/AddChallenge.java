@@ -206,6 +206,7 @@ public class AddChallenge extends Fragment {
         String ChallengeTime = et_ch_time.getText().toString().trim();
         String ChallengeDesc = et_ch_Description.getText().toString().trim();
         String Status = "false";
+        String confirmation = "not";
 
         Challenge myChallenge = new Challenge(
                 ChallengeType,
@@ -216,7 +217,8 @@ public class AddChallenge extends Fragment {
                 ChallengeTime,
                 ChallengeDesc,
                 imageName,
-                Status);
+                Status,
+                confirmation);
 
         Challengei mychallengei = Url.getInstance().create(Challengei.class);
         Call<Void> callChallenge = mychallengei.addChallenge(myChallenge);

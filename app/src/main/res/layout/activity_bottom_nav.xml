@@ -5,12 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.Bottom_nav">
+    tools:context=".activities.Bottom_nav"
+    android:background="@color/colorBg">
 
     <FrameLayout
         android:id="@+id/container_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorBg"
         android:layout_above="@+id/nav_container"
         >
 
@@ -51,7 +53,7 @@
             android:layout_gravity="bottom"
             app:cnb_menuResource="@menu/bottom_navigation"
             app:itemIconTint="@color/selector"
-            android:background="@drawable/curve_sides"
+            android:background="@color/colorBg"
             />
 
     </com.google.android.material.appbar.AppBarLayout>

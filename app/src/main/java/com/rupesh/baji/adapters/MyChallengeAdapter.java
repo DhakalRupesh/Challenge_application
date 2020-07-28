@@ -78,6 +78,7 @@ public class MyChallengeAdapter extends RecyclerView.Adapter<MyChallengeAdapter.
 
                 viewDetails.putExtra("chID", challenge.get_id());
                 viewDetails.putExtra("challenger", user.getUname());
+                viewDetails.putExtra("userID", user.get_id());
                 viewDetails.putExtra("chEmail", user.getEmail());
                 viewDetails.putExtra("chType", challenge.getChType());
                 viewDetails.putExtra("chGame", challenge.getChGame());

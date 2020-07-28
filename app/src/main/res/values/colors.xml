@@ -15,5 +15,17 @@
     <color name="lightText">#636363</color>
     <color name="textXmlColor">#757575</color>
     <color name="colorSemiBlack">#302F2F</color>
+    <color name="colorDarkOrange">#EB7D16</color>
+
+    <!--  New Design  -->
+    <color name="colorWhiteHeading">#fafafa</color>
+    <color name="colorWhiteSub">#BBBABA</color>
+    <color name="colorOrange">#EB7D16</color>
+    <color name="colorBg">#0C0B0B</color>
+    <color name="colorEtBg">#14141C</color>
+    <color name="colorEttv">#363636</color>
+    <color name="colorBtnBg">#271C69</color>
+    <color name="colorCardBg">#222236</color>
+
 
 </resources>

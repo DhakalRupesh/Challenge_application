@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:clipToPadding="false"
-        android:background="#ffffff">
+        android:background="@color/colorBg">
 
         <View
             android:id="@+id/indicator"
@@ -30,7 +30,9 @@
             app:tabMode="fixed"
             app:tabIndicatorColor="@null"
             app:tabRippleColor="@null"
+            android:fontFamily="@font/oswald"
             app:tabTextColor="@color/textXmlColor"
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
             app:tabSelectedTextColor="#ffffff"
             />
 

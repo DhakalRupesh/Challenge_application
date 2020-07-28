@@ -3,13 +3,13 @@
     android:shape="rectangle">
     <stroke
         android:width="4dp"
-        android:color="@color/colorBtnBg" />
+        android:color="@color/colorCardBg" />
 
     <solid
-        android:color="@color/colorBtnBg"
+        android:color="@color/colorCardBg"
         />
 
-    <corners android:radius="30dp" />
+    <corners android:radius="16dp" />
 
     <padding
         android:left="10dp"

@@ -13,8 +13,12 @@ public class Challenge {
     private String chImage;
     private String status;
 
+    private User WonBy;
+    private User confirmationSendBy;
+    private String confirmation;
+    private String proofingImage;
 
-    public Challenge(String chType, User chBy, String chGame, String chAmt, String chDate, String chTime, String chDesc, String chImage, String status) {
+    public Challenge(String chType, User chBy, String chGame, String chAmt, String chDate, String chTime, String chDesc, String chImage, String status, String confirmation) {
         this.chType = chType;
         this.chBy = chBy;
         this.chGame = chGame;
@@ -24,19 +28,7 @@ public class Challenge {
         this.chDesc = chDesc;
         this.chImage = chImage;
         this.status = status;
-    }
-
-    public Challenge(String chType, User chBy, User chAcceptedby, String chGame, String chAmt, String chDate, String chTime, String chDesc, String chImage, String status) {
-        this.chType = chType;
-        this.chBy = chBy;
-        this.chAcceptedby = chAcceptedby;
-        this.chGame = chGame;
-        this.chAmt = chAmt;
-        this.chDate = chDate;
-        this.chTime = chTime;
-        this.chDesc = chDesc;
-        this.chImage = chImage;
-        this.status = status;
+        this.confirmation = confirmation;
     }
 
     public Challenge(User chAcceptedby, String status) {
@@ -44,11 +36,19 @@ public class Challenge {
         this.status = status;
     }
 
+    public Challenge(User wonBy, User confirmationSendBy, String confirmation, String proofingImage) {
+        WonBy = wonBy;
+        this.confirmationSendBy = confirmationSendBy;
+        this.confirmation = confirmation;
+        this.proofingImage = proofingImage;
+    }
+
     public Challenge(String _id){
         this._id = _id;
     }
 
     // GS
+
     public String get_id() {
         return _id;
     }
@@ -135,5 +135,37 @@ public class Challenge {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public User getWonBy() {
+        return WonBy;
+    }
+
+    public void setWonBy(User wonBy) {
+        WonBy = wonBy;
+    }
+
+    public User getConfirmationSendBy() {
+        return confirmationSendBy;
+    }
+
+    public void setConfirmationSendBy(User confirmationSendBy) {
+        this.confirmationSendBy = confirmationSendBy;
+    }
+
+    public String getConfirmation() {
+        return confirmation;
+    }
+
+    public void setConfirmation(String confirmation) {
+        this.confirmation = confirmation;
+    }
+
+    public String getProofingImage() {
+        return proofingImage;
+    }
+
+    public void setProofingImage(String proofingImage) {
+        this.proofingImage = proofingImage;
     }
 }

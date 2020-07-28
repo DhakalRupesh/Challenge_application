@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.MyChallenges"
-    android:background="#ffffff"
-    android:paddingHorizontal="15dp">
+    android:background="@color/colorBg"
+    android:paddingHorizontal="15dp"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/roboto"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/oswald"
         android:textSize="14sp"
         android:layout_gravity="center_horizontal"
         android:text="accepted challenge can't be seen here"
-        android:textColor="#000000" />
+        android:textColor="@color/colorWhiteSub" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_my_challenge_card"
         android:layout_below="@+id/ll_info1"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</FrameLayout>
+</LinearLayout>
