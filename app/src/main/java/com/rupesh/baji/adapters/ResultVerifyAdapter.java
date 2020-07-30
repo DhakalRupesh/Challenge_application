@@ -55,7 +55,7 @@ public class ResultVerifyAdapter extends RecyclerView.Adapter<ResultVerifyAdapte
         String imagePathPost = Url.imagePath + result.getChImage();
         Picasso.get().load(imagePathPost).into(holder.imgChallengeResult);
 
-        holder.challenger.setText(muser.getUname());
+//        holder.challenger.setText(muser.getUname());
         holder.game.setText(result.getChGame());
         holder.bpamount.setText(result.getChAmt());
 

@@ -13,8 +13,8 @@ public class Challenge {
     private String chImage;
     private String status;
 
-    private User WonBy;
-    private User confirmationSendBy;
+    private User chWinner;
+    private User chConformer;
     private String confirmation;
     private String proofingImage;
 
@@ -36,9 +36,9 @@ public class Challenge {
         this.status = status;
     }
 
-    public Challenge(User wonBy, User confirmationSendBy, String confirmation, String proofingImage) {
-        WonBy = wonBy;
-        this.confirmationSendBy = confirmationSendBy;
+    public Challenge(User chWinner, User chConformer, String confirmation, String proofingImage) {
+        this.chWinner = chWinner;
+        this.chConformer = chConformer;
         this.confirmation = confirmation;
         this.proofingImage = proofingImage;
     }
@@ -48,6 +48,7 @@ public class Challenge {
     }
 
     // GS
+
 
     public String get_id() {
         return _id;
@@ -137,20 +138,20 @@ public class Challenge {
         this.status = status;
     }
 
-    public User getWonBy() {
-        return WonBy;
+    public User getChWinner() {
+        return chWinner;
     }
 
-    public void setWonBy(User wonBy) {
-        WonBy = wonBy;
+    public void setChWinner(User chWinner) {
+        this.chWinner = chWinner;
     }
 
-    public User getConfirmationSendBy() {
-        return confirmationSendBy;
+    public User getChConformer() {
+        return chConformer;
     }
 
-    public void setConfirmationSendBy(User confirmationSendBy) {
-        this.confirmationSendBy = confirmationSendBy;
+    public void setChConformer(User chConformer) {
+        this.chConformer = chConformer;
     }
 
     public String getConfirmation() {
