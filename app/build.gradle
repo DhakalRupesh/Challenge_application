@@ -23,6 +23,9 @@ android {
     compileOptions {
         targetCompatibility = 1.8
         sourceCompatibility = 1.8
+        // khalti
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 }
@@ -41,30 +44,28 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
-
     //loading image dependency
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-
     //circle image view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     //rounded image view
     implementation 'com.makeramen:roundedimageview:2.3.0'
-
     // material design
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'com.google.android.material:material:1.2.0-alpha06'
-
     // cucumber
     testImplementation 'io.cucumber:cucumber-java:5.7.0'
     testImplementation 'io.cucumber:cucumber-junit:5.7.0'
-
     //chipnavigation
     implementation 'com.ismaeldivita.chipnavigation:chip-navigation-bar:1.2.0'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.70'
-
     //for tablayout
     implementation 'com.android.support:appcompat-v7:29.0.0'
     implementation 'com.android.support:design:29.0.0'
+    //khalti
+    implementation ("com.khalti:khalti-android:2.00.01") {
+        transitive = true
+    }
 
 }

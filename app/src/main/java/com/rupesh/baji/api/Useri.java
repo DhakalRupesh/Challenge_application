@@ -37,7 +37,6 @@ public interface Useri {
     @GET("user/users/{id}")
     Call<User> getOneUser(@Path("id") String id);
 
-
     @PUT("user/updateme")
     Call<User> updateProfile(@Header("Authorization") String token, @Body User user);
 

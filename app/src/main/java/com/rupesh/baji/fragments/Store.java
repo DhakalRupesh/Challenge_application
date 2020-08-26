@@ -9,11 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.khalti.widget.KhaltiButton;
 import com.rupesh.baji.R;
 
 public class Store extends Fragment {
 
     RelativeLayout rl_buypoints1, buyooints2;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
