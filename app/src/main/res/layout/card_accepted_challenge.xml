@@ -11,13 +11,13 @@
     app:cardCornerRadius="12dp"
     android:alignmentMode="alignMargins"
     android:columnOrderPreserved="false"
-    android:background="@color/colorBg">
+    android:background="@color/colorCardBg">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/colorBg"
+        android:background="@color/colorCardBg"
         android:paddingBottom="10dp">
 
         <TextView

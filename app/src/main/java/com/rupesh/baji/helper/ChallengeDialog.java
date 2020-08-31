@@ -42,9 +42,7 @@ public class ChallengeDialog extends AppCompatDialogFragment {
     ImageView imgProofing;
 
     TextView tvChid, tvAccepted, tvChallenger;
-    Spinner spinner;
     ArrayList<String> list = new ArrayList<>();
-//    private String WonBY;
 
     @NonNull
     @Override
@@ -77,7 +75,7 @@ public class ChallengeDialog extends AppCompatDialogFragment {
                     }
                 });
 
-//        rdoBtnGrp = view.findViewById(R.id.rdogrp_result);
+
         imgProofing = view.findViewById(R.id.img_res_proof_image);
         tvChid = view.findViewById(R.id.tv_res_chID);
         tvAccepted = view.findViewById(R.id.tv_res_acceptedbyID);
@@ -92,14 +90,15 @@ public class ChallengeDialog extends AppCompatDialogFragment {
 
     public void PostResult() {
 
-        Bundle mArgs = getArguments();
+//        Bundle mArgs = getArguments();
 
         User wonBy  = new User(Bottom_nav.user.get_id());
-        Challenge ChallengeWon = new Challenge(mArgs.getString("chID"));
-//        User ChBy = new User(mArgs.getString("challenger"));
-        User chacceptedBy = new User(mArgs.getString("acceptedBY"));
-        User confirmationSendBy = new User(Bottom_nav.user.get_id());
+        User ChallengeAcceptedBy = new User(Bottom_nav.user.get_id());
 
+//        Challenge ChallengeWon = new Challenge(mArgs.getString("chID"));
+////        User ChBy = new User(mArgs.getString("challenger"));
+//        User chacceptedBy = new User(mArgs.getString("acceptedBY"));
+        User confirmationSendBy = new User(Bottom_nav.user.get_id());
         String confirmationType = "waiting";
         String imageProofing = "image goes here";
 
@@ -110,10 +109,13 @@ public class ChallengeDialog extends AppCompatDialogFragment {
 //        Resulti myResultAPI = Url.getInstance().create(Resulti.class);
 //        Call<Void> myResultCall = myResultAPI.submitResult(postResult);
 
-        Challenge updateChallenge = new Challenge(wonBy, confirmationSendBy, confirmationType, imageProofing);
         Bundle mArgss = getArguments();
         String challengeId = mArgss.getString("chID");
+        String currentUsr = mArgss.getString("currentUsr");
 
+        User curUsr = new User(currentUsr);
+
+        Challenge updateChallenge = new Challenge(curUsr, curUsr, confirmationType, imageProofing);
         Challengei challengeiUpdate = Url.getInstance().create(Challengei.class);
         Call<Void> myChallengeCall = challengeiUpdate.updateResVerification(challengeId, updateChallenge);
 

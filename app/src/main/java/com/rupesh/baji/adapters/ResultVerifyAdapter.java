@@ -1,6 +1,7 @@
 package com.rupesh.baji.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rupesh.baji.R;
+import com.rupesh.baji.activities.ChallengeDetail;
 import com.rupesh.baji.model.Challenge;
 import com.rupesh.baji.model.Result;
 import com.rupesh.baji.model.User;
@@ -59,6 +61,31 @@ public class ResultVerifyAdapter extends RecyclerView.Adapter<ResultVerifyAdapte
         holder.game.setText(result.getChGame());
         holder.bpamount.setText(result.getChAmt());
 
+        holder.imgResDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewDetails = new Intent(mContext, ChallengeDetail.class);
+
+                Challenge challenge = resultList.get(position);
+                User user;
+                user = challenge.getChBy();
+
+                viewDetails.putExtra("chID", challenge.get_id());
+                viewDetails.putExtra("challenger", user.getUname());
+                viewDetails.putExtra("userID", user.get_id());
+                viewDetails.putExtra("chEmail", user.getEmail());
+                viewDetails.putExtra("chType", challenge.getChType());
+                viewDetails.putExtra("chGame", challenge.getChGame());
+                viewDetails.putExtra("chBP", challenge.getChAmt());
+                viewDetails.putExtra("chDesc", challenge.getChDesc());
+                viewDetails.putExtra("chTime", challenge.getChTime());
+                viewDetails.putExtra("chDate", challenge.getChDate());
+                viewDetails.putExtra("chStatus", challenge.getStatus());
+
+                mContext.startActivity(viewDetails);
+            }
+        });
+
     }
 
     @Override
@@ -68,7 +95,7 @@ public class ResultVerifyAdapter extends RecyclerView.Adapter<ResultVerifyAdapte
 
     public class ResultVerifyViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imgChallengeResult, imgDEscription, imgReportnChange , imgVerify;
+        ImageView imgChallengeResult, imgResDetails, imgReportnChange , imgVerify;
         TextView challenger, game, bpamount;
 
         Context context;
@@ -77,7 +104,7 @@ public class ResultVerifyAdapter extends RecyclerView.Adapter<ResultVerifyAdapte
             super(itemView);
 
             imgChallengeResult = itemView.findViewById(R.id.img_result_game_res_image);
-            imgDEscription = itemView.findViewById(R.id.btn_result_Challenge_detail);
+            imgResDetails = itemView.findViewById(R.id.btn_result_Challenge_detail);
             imgReportnChange = itemView.findViewById(R.id.btn_report_result);
             imgVerify = itemView.findViewById(R.id.btn_verify_res);
 

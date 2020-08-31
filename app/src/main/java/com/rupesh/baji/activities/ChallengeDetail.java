@@ -26,7 +26,7 @@ import retrofit2.Response;
 public class ChallengeDetail extends AppCompatActivity {
 
     ImageView imgChImage;
-    TextView tvChallenger, tvChallengerID, tvBnav, tvChType, tvChGame, tvChBP, tvChDescription, tvChTime, tvChDate, tvChid, tvChallenge;
+    TextView tvChallenger, tvChallengerID, tvBnav, tvChType, tvChGame, tvChBP, tvChDescription, tvChTime, tvChDate, tvChid, tvChallenge, tv_details_challengeStatus;
     Button btnAcceptChallenge;
     String userIDHolder;
 
@@ -46,6 +46,7 @@ public class ChallengeDetail extends AppCompatActivity {
         tvChTime = findViewById(R.id.tv_details_chTime);
         tvChDate = findViewById(R.id.tv_details_Date);
         tvChid = findViewById(R.id.tv_details_chID);
+        tv_details_challengeStatus = findViewById(R.id.tv_details_challengeStatus);
 
         userIDHolder = Bottom_nav.user.get_id();
 
@@ -58,8 +59,12 @@ public class ChallengeDetail extends AppCompatActivity {
         Bundle bundle1 = getIntent().getExtras();
         String challengerID = bundle1.getString("userID");
 
+        Bundle bundle2 = getIntent().getExtras();
+        String chStatus = bundle2.getString("chStatus");
 
-        if(Bottom_nav.user.get_id().equals(challengerID)){
+        tv_details_challengeStatus.setText(chStatus);
+
+        if(Bottom_nav.user.get_id().equals(challengerID) || chStatus.equals("true")){
             btnAcceptChallenge.setVisibility(View.INVISIBLE);
         }
 
@@ -165,6 +170,7 @@ public class ChallengeDetail extends AppCompatActivity {
             String chDesc = bundle.getString("chDesc");
             String chTime = bundle.getString("chTime");
             String chDate = bundle.getString("chDate");
+            String chStatus = bundle.getString("chStatus");
 
 
             tvChid.setText(chId);

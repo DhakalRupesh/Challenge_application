@@ -86,6 +86,7 @@ public class MyChallengeAdapter extends RecyclerView.Adapter<MyChallengeAdapter.
                 viewDetails.putExtra("chDesc", challenge.getChDesc());
                 viewDetails.putExtra("chTime", challenge.getChTime());
                 viewDetails.putExtra("chDate", challenge.getChDate());
+                viewDetails.putExtra("chStatus", challenge.getStatus());
 
                 mContext.startActivity(viewDetails);
             }
