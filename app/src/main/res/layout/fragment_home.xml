@@ -89,7 +89,9 @@
                 android:background="@drawable/custom_et"
                 android:drawableLeft="@drawable/ic_baseline_search_24"
                 android:textColorHint="@color/colorEttv"
+                android:textColor="@color/colorWhiteSub"
                 android:drawablePadding="8dp"
+                android:focusedByDefault="false"
                 android:hint="Search by BP"/>
 
             <TextView

@@ -68,4 +68,8 @@ dependencies {
         transitive = true
     }
 
+    // for zooming image
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
+    implementation 'com.zolad:zoominimageview:1.0.0'
+
 }

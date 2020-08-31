@@ -2,18 +2,24 @@ package com.rupesh.baji.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rupesh.baji.R;
+import com.rupesh.baji.activities.Bottom_nav;
 import com.rupesh.baji.activities.ChallengeDetail;
+import com.rupesh.baji.helper.ChallengeDialog;
+import com.rupesh.baji.helper.VerifyDialog;
 import com.rupesh.baji.model.Challenge;
 import com.rupesh.baji.model.Result;
 import com.rupesh.baji.model.User;
@@ -52,7 +58,7 @@ public class ResultVerifyAdapter extends RecyclerView.Adapter<ResultVerifyAdapte
         Challenge result = resultList.get(position);
         Mode();
         muser = result.getChBy();
-        mmuser = result.getChAcceptedby();
+        mmuser = result.getConfirmationSendBy();
 
         String imagePathPost = Url.imagePath + result.getChImage();
         Picasso.get().load(imagePathPost).into(holder.imgChallengeResult);
@@ -86,6 +92,45 @@ public class ResultVerifyAdapter extends RecyclerView.Adapter<ResultVerifyAdapte
             }
         });
 
+        if(Bottom_nav.user.get_id().equals(mmuser.get_id())) {
+            holder.imgVerify.setVisibility(View.GONE);
+            holder.imgReportnChange.setVisibility(View.GONE);
+            holder.tv_resverify_currentusr.setText("Opponent verify pending...");
+        }
+
+        holder.imgReportnChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openChallengeDialog();
+            }
+            private void openChallengeDialog() {
+                Bundle args = new Bundle();
+                User user;
+                user = result.getChAcceptedby();
+                User user1;
+                user1 = result.getChBy();
+                args.putString("chID", result.get_id());
+                args.putString("acceptedBY", user.get_id());
+                args.putString("challenger", user1.get_id());
+                args.putString("currentUsr", Bottom_nav.user.get_id());
+
+                ChallengeDialog challengeDialog = new ChallengeDialog();
+                challengeDialog.setArguments(args);
+                challengeDialog.show(((AppCompatActivity) mContext).getSupportFragmentManager(), "challenge dialog");
+            }
+        });
+
+        holder.imgVerify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openChallengeDialog();
+            }
+
+            private void openChallengeDialog() {
+                VerifyDialog verifyDialog = new VerifyDialog();
+                verifyDialog.show(((AppCompatActivity) mContext).getSupportFragmentManager(), "verify dialog");
+            }
+        });
     }
 
     @Override
@@ -96,7 +141,7 @@ public class ResultVerifyAdapter extends RecyclerView.Adapter<ResultVerifyAdapte
     public class ResultVerifyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imgChallengeResult, imgResDetails, imgReportnChange , imgVerify;
-        TextView challenger, game, bpamount;
+        TextView challenger, game, bpamount, tv_resverify_currentusr;
 
         Context context;
         List<Challenge> list;
@@ -111,6 +156,7 @@ public class ResultVerifyAdapter extends RecyclerView.Adapter<ResultVerifyAdapte
             challenger = itemView.findViewById(R.id.tv_result_challengerName);
             game = itemView.findViewById(R.id.tv_result_GameName);
             bpamount = itemView.findViewById(R.id.tv_result_BP);
+            tv_resverify_currentusr = itemView.findViewById(R.id.tv_resverify_currentusr);
 
             this.context = mContext;
             this.list = resultList;

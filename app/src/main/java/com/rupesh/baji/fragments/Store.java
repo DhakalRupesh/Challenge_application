@@ -14,9 +14,6 @@ import com.rupesh.baji.R;
 
 public class Store extends Fragment {
 
-    RelativeLayout rl_buypoints1, buyooints2;
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -25,7 +22,7 @@ public class Store extends Fragment {
 
         // esewa integration
 
-        rl_buypoints1 = view.findViewById(R.id.rl_buypoints1);
+
 
 
         return view;

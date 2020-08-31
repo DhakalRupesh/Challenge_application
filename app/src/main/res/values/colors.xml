@@ -26,6 +26,6 @@
     <color name="colorEttv">#363636</color>
     <color name="colorBtnBg">#271C69</color>
     <color name="colorCardBg">#222236</color>
-
+    <color name="whitebgTxt">#212121</color>
 
 </resources>

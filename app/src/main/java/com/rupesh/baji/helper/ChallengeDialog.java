@@ -127,6 +127,7 @@ public class ChallengeDialog extends AppCompatDialogFragment {
                     return;
                 }
                 Toast.makeText(getContext(), "Result verification send", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getContext(), com.rupesh.baji.activities.Challenge.class));
                 return;
             }
 

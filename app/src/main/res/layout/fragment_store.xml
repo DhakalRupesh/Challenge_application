@@ -21,7 +21,7 @@
         android:layout_marginBottom="20dp"/>
 
     <RelativeLayout
-        android:id="@+id/rl_buypoints1"
+        android:id="@+id/rl_buypoints1_bestValue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/marketrectangle"
@@ -110,7 +110,7 @@
     >
 
         <LinearLayout
-            android:id="@+id/llpp1"
+            android:id="@+id/ll_buy2_popular1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/marketrectangle"
@@ -137,7 +137,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llpp2"
+            android:id="@+id/ll_buy3_popular2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/marketrectangle"
@@ -175,7 +175,7 @@
         android:layout_marginVertical="20dp"/>
 
     <RelativeLayout
-        android:id="@+id/rl_buypoints2"
+        android:id="@+id/rl_buypoints4_heavyvalue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/marketrectangle"
