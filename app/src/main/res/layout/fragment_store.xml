@@ -125,15 +125,43 @@
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/coin"/>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="40 BP - RS 50"
-                android:layout_marginTop="10dp"
-                android:textSize="16dp"
-                android:fontFamily="@font/oswald"
-                android:textColor="@color/colorWhiteSub"
-                android:layout_gravity="center_horizontal"/>
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/tv_popular1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="40 "
+                    android:layout_marginTop="10dp"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorWhiteSub"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BP "
+                    android:layout_marginTop="10dp"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorWhiteSub"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="- RS 50"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorWhiteSub"
+                   />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -152,15 +180,44 @@
                 android:layout_height="120dp"
                 android:src="@drawable/coin"/>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="50 BP - RS 60"
-                android:layout_marginTop="10dp"
-                android:textSize="16dp"
-                android:fontFamily="@font/oswald"
-                android:textColor="@color/colorWhiteSub"
-                android:layout_gravity="center_horizontal"/>
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/tv_popular2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50 "
+                    android:layout_marginTop="10dp"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorWhiteSub"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BP "
+                    android:layout_marginTop="10dp"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorWhiteSub"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="- RS 60"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/oswald"
+                    android:textColor="@color/colorWhiteSub"
+                    />
+            </LinearLayout>
+
 
         </LinearLayout>
 

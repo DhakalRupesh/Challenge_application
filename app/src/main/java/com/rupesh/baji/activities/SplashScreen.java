@@ -2,7 +2,9 @@ package com.rupesh.baji.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -41,5 +43,14 @@ public class SplashScreen extends AppCompatActivity {
 
         txtInfo.setAnimation(textDrop);
         txtSubInfo.setAnimation(textDrop);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SplashScreen.this,  com.rupesh.baji.activities.Login.class));
+                finish();
+            }
+        }, 5000);
     }
 }

@@ -8,12 +8,41 @@
     android:background="@color/colorCardBg">
 
     <TextView
+        android:id="@+id/tv_store_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BP Purchase"
         android:fontFamily="@font/oswald"
         android:textSize="16dp"
         android:textColor="@color/colorWhiteHeading"/>
+
+    <EditText
+        android:id="@+id/et_store_CardNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_baseline_credit_card_24"
+        android:drawablePadding="8dp"
+        android:background="@drawable/custom_et"
+        android:textColor="@color/colorWhiteSub"
+        android:textColorHint="@color/colorWhiteSub"
+        android:fontFamily="@font/oswald"
+        android:hint="enter your card number"
+        />
+
+
+    <Button
+        android:id="@+id/btn_store_Purchase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_rounded_btn"
+        android:text="Purchase"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/oswald"
+        android:textAllCaps="false"
+        android:layout_gravity="center_horizontal"
+        />
 
 
 
