@@ -40,6 +40,9 @@ public interface Useri {
     @PUT("user/updateme")
     Call<User> updateProfile(@Header("Authorization") String token, @Body User user);
 
+    @PUT("user/upBp/{id}")
+    Call<Void> updateBpStatus(@Path("id") String id, @Body User upuser);
+
     @Multipart
     @POST("/uploads")
     Call<ImageResponse> registerImage(@Part MultipartBody.Part img);

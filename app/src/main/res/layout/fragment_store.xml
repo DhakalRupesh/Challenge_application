@@ -73,6 +73,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/bestvalue_bp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="200"
@@ -227,6 +228,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/heavyvalue_bp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1350"

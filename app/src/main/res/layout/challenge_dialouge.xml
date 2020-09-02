@@ -7,6 +7,7 @@
     android:paddingRight="25dp"
     android:paddingLeft="25dp"
     android:paddingBottom="25dp"
+    android:background="@color/colorCardBg"
     >
 
     <!--  challenge ID  -->
@@ -14,72 +15,24 @@
         android:id="@+id/tv_res_chID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/>
 
     <!--  accepted by (opponent)  -->
     <TextView
         android:id="@+id/tv_res_acceptedbyID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/>
 
     <!--  challenger   -->
     <TextView
         android:id="@+id/tv_res_challenger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
-
-
-    <TextView
-        android:layout_width="67dp"
-        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="" />
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
-
-<!--        <RadioGroup-->
-<!--            android:id="@+id/rdogrp_result"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            <RadioButton-->
-<!--                android:id="@+id/rdo_res_you"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:text="Me"-->
-<!--                android:checked="true"-->
-<!--                android:textColor="#757575" />-->
-
-<!--        </RadioGroup>-->
-
-<!--        <RadioGroup-->
-<!--            android:id="@+id/rdogrp_result_OPP"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            <RadioButton-->
-<!--                android:id="@+id/rdo_res_opponent"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:textColor="#757575"-->
-<!--                android:text="Opponent"/>-->
-
-<!--        </RadioGroup>-->
-
-<!--    </LinearLayout>-->
-<!--    <Spinner-->
-<!--        android:id="@+id/spinner"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"/>-->
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/et_ep_info_text"
@@ -87,72 +40,64 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_ep_username"
         android:layout_marginTop="15dp"
-        android:textColor="@color/colorSemiBlack"
-        android:text="upload proofing image"/>
+        android:textColor="@color/colorWhiteHeading"
+        android:fontFamily="@font/oswald"
+        android:textSize="16sp"
+        android:text="Submit Your Victory"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_ep_username"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorWhiteSub"
+        android:fontFamily="@font/oswald"
+        android:text="upload photo of your score"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_res_proof_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="2dp"
+        android:layout_marginBottom="20dp"
         android:layout_below="@+id/et_ep_info_text"
         android:src="@drawable/ic_add_photo_24dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="2dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/et_ep_username"
-            android:layout_marginTop="2dp"
             android:text="Note "
             android:textStyle="bold"
-            android:textColor="@color/colorSuccess"/>
+            android:fontFamily="@font/oswald"
+            android:textColor="@color/colorOrange"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/et_ep_username"
-            android:layout_marginTop="2dp"
-            android:text="you will be set as winner before verification"
-            android:textColor="@color/colorSemiBlack"/>
+            android:fontFamily="@font/oswald"
+            android:text="opponent should verify the result"
+            android:textColor="@color/colorWhiteSub"/>
     </LinearLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_res_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_ep_username"
-            android:layout_marginTop="2dp"
-            android:text="Note "
-            android:textStyle="bold"
-            android:textColor="@color/colorError"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_ep_username"
-            android:layout_marginTop="2dp"
-            android:text="opponent should verify the result"
-            android:textColor="@color/colorSemiBlack"/>
-    </LinearLayout>
-
-<!--    <Button-->
-<!--        android:id="@+id/btn_res_post"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Post"-->
-<!--        android:textColor="#fff"-->
-<!--        android:layout_below="@+id/img_ep_profile_Image"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:backgroundTint="@color/btnGreen"/>-->
+        android:text="Post"
+        android:textColor="#fff"
+        android:layout_below="@+id/img_ep_profile_Image"
+        android:textAllCaps="false"
+        android:fontFamily="@font/oswald"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_rounded_btn"/>
 
 
 

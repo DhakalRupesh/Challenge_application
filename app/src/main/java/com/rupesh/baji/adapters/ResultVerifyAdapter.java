@@ -127,7 +127,16 @@ public class ResultVerifyAdapter extends RecyclerView.Adapter<ResultVerifyAdapte
             }
 
             private void openChallengeDialog() {
+                Bundle args = new Bundle();
+                args.putString("verificationSendBy", mmuser.get_id());
+                args.putString("verifiersBP", mmuser.getAmt());
+                args.putString("wonBp", result.getChAmt());
+                args.putString("fname", mmuser.getFname());
+                args.putString("ToVerifychID", result.get_id());
+                args.putString("chType", result.getChType());
+//                args.putString("verifier");
                 VerifyDialog verifyDialog = new VerifyDialog();
+                verifyDialog.setArguments(args);
                 verifyDialog.show(((AppCompatActivity) mContext).getSupportFragmentManager(), "verify dialog");
             }
         });

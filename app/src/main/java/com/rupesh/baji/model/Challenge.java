@@ -43,6 +43,11 @@ public class Challenge {
         this.proofingImage = proofingImage;
     }
 
+    public Challenge(String chType, String confirmation) {
+        this.chType = chType;
+        this.confirmation = confirmation;
+    }
+
     public Challenge(String _id){
         this._id = _id;
     }
