@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.rupesh.baji.R;
 import com.rupesh.baji.api.Challengei;
+import com.rupesh.baji.api.Useri;
 import com.rupesh.baji.model.Challenge;
 import com.rupesh.baji.model.User;
 import com.rupesh.baji.url.Url;
@@ -26,7 +27,8 @@ import retrofit2.Response;
 public class ChallengeDetail extends AppCompatActivity {
 
     ImageView imgChImage;
-    TextView tvChallenger, tvChallengerID, tvBnav, tvChType, tvChGame, tvChBP, tvChDescription, tvChTime, tvChDate, tvChid, tvChallenge, tv_details_challengeStatus;
+    TextView tvChallenger, tvChallengerID, tvBnav, tvChType, tvChGame, tvChBP, tvChDescription, tvChTime, tvChDate,
+            tvChid, tvChallenge, tv_details_challengeStatus, tv_detail_money;
     Button btnAcceptChallenge;
     String userIDHolder;
 
@@ -47,6 +49,7 @@ public class ChallengeDetail extends AppCompatActivity {
         tvChDate = findViewById(R.id.tv_details_Date);
         tvChid = findViewById(R.id.tv_details_chID);
         tv_details_challengeStatus = findViewById(R.id.tv_details_challengeStatus);
+        tv_detail_money = findViewById(R.id.tv_detail_money);
 
         userIDHolder = Bottom_nav.user.get_id();
 
@@ -87,12 +90,41 @@ public class ChallengeDetail extends AppCompatActivity {
                                 Toast.makeText(ChallengeDetail.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
                                 return;
                             }
-
-                            Toast.makeText(ChallengeDetail.this, "accepted", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ChallengeDetail.this, "Challenge Accepted", Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void onFailure(Call<Void> call, Throwable t) {
+                            Toast.makeText(ChallengeDetail.this, "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    // update user BP
+                    int usrBPamt  = Integer.parseInt(Bottom_nav.user.getAmt());
+                    String fname = Bottom_nav.user.getFname();
+
+                    int x = usrBPamt - Integer.parseInt(tvChBP.getText().toString());
+                    String remainBp = Integer.toString(x);
+
+                    User updateBp = new User(fname, remainBp);
+
+                    Useri useri = Url.getInstance().create(Useri.class);
+                    Call<User> updateCall = useri.updateProfile(Url.token, updateBp);
+
+                    updateCall.enqueue(new Callback<User>() {
+                        @Override
+                        public void onResponse(Call<User> call, Response<User> response) {
+
+                            if (!response.isSuccessful()) {
+                                Toast.makeText(ChallengeDetail.this, "Error !!", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            startActivity(new Intent(ChallengeDetail.this, com.rupesh.baji.activities.Bottom_nav.class));
+                            Toast.makeText(ChallengeDetail.this, "Challenge Accepted", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<User> call, Throwable t) {
                             Toast.makeText(ChallengeDetail.this, "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
@@ -182,6 +214,10 @@ public class ChallengeDetail extends AppCompatActivity {
             tvChTime.setText(chTime);
             tvChDate.setText(chDate);
             tvChGame.setText(chGame);
+            int usrBPamt  = Integer.parseInt(chBp);
+            int finalAmt = usrBPamt * 2;
+            String remainBp = Integer.toString(finalAmt);
+            tv_detail_money.setText(remainBp);
 
         } else {
             Toast.makeText(this, "Cant get this item", Toast.LENGTH_LONG).show();

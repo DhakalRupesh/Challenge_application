@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.rupesh.baji.R;
 import com.rupesh.baji.activities.Bottom_nav;
 import com.rupesh.baji.api.Challengei;
+import com.rupesh.baji.api.Useri;
 import com.rupesh.baji.model.Challenge;
 import com.rupesh.baji.model.User;
 import com.rupesh.baji.serverresponse.ImageResponse;
@@ -153,18 +154,15 @@ public class AddChallenge extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == Activity.RESULT_OK) {
-            if (data == null) {
+            if (data.equals(null)) {
                 Toast.makeText(getContext(), "Please select an image ", Toast.LENGTH_SHORT).show();
+                return;
             }
+            return;
         }
-        else {
-            Uri uri = data.getData();
-            img_ch_image.setImageURI(uri);
-            imagePath = getRealPathFromUri(uri);
-        }
-//        Uri uri = data.getData();
-//        img_ch_image.setImageURI(uri);
-//        imagePath = getRealPathFromUri(uri);
+        Uri uri = data.getData();
+        img_ch_image.setImageURI(uri);
+        imagePath = getRealPathFromUri(uri);
     }
 
     private String getRealPathFromUri(Uri uri) {
@@ -226,7 +224,6 @@ public class AddChallenge extends Fragment {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 Toast.makeText(getContext(), "Your Challenge is posted successfully", Toast.LENGTH_SHORT).show();
-//                ClearField();
             }
 
             @Override
@@ -234,6 +231,37 @@ public class AddChallenge extends Fragment {
                 Toast.makeText(getContext(), "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        // update user BP
+        int usrBPamt  = Integer.parseInt(Bottom_nav.user.getAmt());
+        String fname = Bottom_nav.user.getFname();
+
+        int x = usrBPamt - Integer.parseInt(et_ch_point.getText().toString());
+        String remainBp = Integer.toString(x);
+
+        User updateBp = new User(fname, remainBp);
+
+        Useri useri = Url.getInstance().create(Useri.class);
+        Call<User> updateCall = useri.updateProfile(Url.token, updateBp);
+
+        updateCall.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+
+                if (!response.isSuccessful()) {
+                    Toast.makeText(getContext(), "Error !!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Toast.makeText(getContext(), "Your Challenge is posted successfully", Toast.LENGTH_SHORT).show();
+                ClearField();
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(getContext(), "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     private void ClearField() {

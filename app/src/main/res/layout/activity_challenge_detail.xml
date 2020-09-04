@@ -202,7 +202,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
                     android:fontFamily="@font/oswald"
-                    android:text="500"
+                    android:text=""
                     android:textColor="@color/colorWhiteSub" />
 
             </LinearLayout>
@@ -245,19 +245,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Conversion"
+                    android:text="Win Points"
                     android:textSize="18dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/oswald"
                     android:textColor="@color/colorOrange" />
 
                 <TextView
-                    android:id="@+id/tv_money"
+                    android:id="@+id/tv_detail_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:fontFamily="@font/oswald"
-                    android:text="RS 10 /-"
+                    android:text="20"
                     android:textColor="@color/colorWhiteSub" />
 
             </LinearLayout>

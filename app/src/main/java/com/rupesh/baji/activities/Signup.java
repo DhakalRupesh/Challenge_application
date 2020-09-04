@@ -71,12 +71,13 @@ public class Signup extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(CheckEmpty()){
-                    if(imagePath == null){
-                        Toast.makeText(Signup.this, "Please select an image", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
+
+//                    if(imagePath == null){
+//                        Toast.makeText(Signup.this, "Please select an image", Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
                     saveImageOnly();
+                if(CheckEmpty()){
                     RegisterUser();
                 }
             }
