@@ -1,9 +1,13 @@
 package com.rupesh.baji.helper;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.loader.content.CursorLoader;
 
 import com.google.gson.Gson;
 import com.rupesh.baji.R;
@@ -28,10 +33,17 @@ import com.rupesh.baji.fragments.CurrentChallenges;
 import com.rupesh.baji.model.Challenge;
 import com.rupesh.baji.model.Result;
 import com.rupesh.baji.model.User;
+import com.rupesh.baji.serverresponse.ImageResponse;
+import com.rupesh.baji.strictmode.StrictModeClass;
 import com.rupesh.baji.url.Url;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,6 +55,8 @@ public class ChallengeDialog extends AppCompatDialogFragment {
 
     TextView tvChid, tvAccepted, tvChallenger;
     ArrayList<String> list = new ArrayList<>();
+    String imagePath;
+    private String imageName = "";
 
     @NonNull
     @Override
@@ -86,11 +100,70 @@ public class ChallengeDialog extends AppCompatDialogFragment {
         btnSubmitResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                saveImageOnly();
                 PostResult();
             }
         });
 
+        imgProofing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BrowseImage();
+            }
+        });
+
         return builder.create();
+    }
+
+    private void BrowseImage() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent, 0);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == Activity.RESULT_OK) {
+            if (data.equals(null)) {
+                Toast.makeText(getContext(), "Please select an image ", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            return;
+        }
+        Uri uri = data.getData();
+        imgProofing.setImageURI(uri);
+        imagePath = getRealPathFromUri(uri);
+    }
+
+    private String getRealPathFromUri(Uri uri) {
+        String[] projection = {MediaStore.Images.Media.DATA};
+        CursorLoader loader = new CursorLoader(getContext(), uri, projection, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+        int colIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        String result = cursor.getString(colIndex);
+        cursor.close();
+        return result;
+    }
+
+    public void saveImageOnly() {
+        File file = new File(imagePath);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("imageFile", file.getName(), requestBody);
+
+        Challengei challengei = Url.getInstance().create(Challengei.class);
+        Call<ImageResponse> responseBodyCall = challengei.uploadChallengeImage(body);
+
+        StrictModeClass.StrictMode();
+
+        try {
+            Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
+            imageName = imageResponseResponse.body().getFilename();
+        } catch (IOException e) {
+            Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
     }
 
     public void PostResult() {
@@ -103,7 +176,7 @@ public class ChallengeDialog extends AppCompatDialogFragment {
 
         User curUsr = new User(currentUsr);
 
-        Challenge updateChallenge = new Challenge(curUsr, curUsr, confirmationType, imageProofing);
+        Challenge updateChallenge = new Challenge(curUsr, curUsr, confirmationType, imageName);
         Challengei challengeiUpdate = Url.getInstance().create(Challengei.class);
         Call<Void> myChallengeCall = challengeiUpdate.updateResVerification(challengeId, updateChallenge);
 
