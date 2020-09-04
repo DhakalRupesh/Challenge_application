@@ -67,11 +67,9 @@ public class VerifyDialog extends AppCompatDialogFragment {
                     String fname = Bottom_nav.user.getFname();
                     int userPoint = Integer.parseInt(senderBp);
                     int wonPoints = Integer.parseInt(wonBp);
-                    int upsPoints = userPoint + wonPoints;
-                    int currentUsrPoint = currentuserPoint - wonPoints;
+                    int upsPoints = userPoint + wonPoints * 2;
 
                     String finalPoint = Integer.toString(upsPoints);
-                    String finalCurrentUserPoint = Integer.toString(currentUsrPoint);
                     // updating winning user status
                     User userUpdate = new User(Fname, finalPoint);
 
@@ -91,29 +89,6 @@ public class VerifyDialog extends AppCompatDialogFragment {
 
                         @Override
                         public void onFailure(Call<Void> call, Throwable t) {
-                            Toast.makeText(getContext(), "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                    // current user update
-                    User CurrentuserUpdate = new User(fname, finalCurrentUserPoint);
-
-                    Useri useriCurrent = Url.getInstance().create(Useri.class);
-                    Call<User> updateCall = useriCurrent.updateProfile(Url.token, CurrentuserUpdate);
-
-                    updateCall.enqueue(new Callback<User>() {
-                        @Override
-                        public void onResponse(Call<User> call, Response<User> response) {
-                            if (!response.isSuccessful()) {
-                                Toast.makeText(getContext(), "Code " + response.code(), Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-
-                            Toast.makeText(getContext(), "verified", Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onFailure(Call<User> call, Throwable t) {
                             Toast.makeText(getContext(), "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
