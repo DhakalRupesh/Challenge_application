@@ -40,12 +40,19 @@
         android:fontFamily="@font/oswald"
         android:textColor="@color/colorWhiteSub"/>
 
-    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+    <ImageView
         android:id="@+id/img_resverify_image"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_marginVertical="10dp"
-        app:src="@drawable/gamescore"/>
+        android:src="@drawable/gamescore"/>
+
+<!--    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView-->
+<!--        android:id="@+id/img_resverify_image"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_marginVertical="10dp"-->
+<!--        android:src="@drawable/gamescore"/>-->
 
     <LinearLayout
         android:layout_width="match_parent"

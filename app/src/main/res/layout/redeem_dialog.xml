@@ -7,12 +7,17 @@
     android:paddingRight="25dp"
     android:paddingLeft="25dp"
     android:paddingBottom="25dp"
+    android:background="@color/colorCardBg"
     >
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:src="@drawable/paypal"/>
+    <TextView
+        android:id="@+id/tv_store_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Redeem Points"
+        android:fontFamily="@font/oswald"
+        android:textSize="18dp"
+        android:textColor="@color/colorWhiteHeading"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,13 +28,16 @@
             android:layout_height="wrap_content"
             android:text="Available points "
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/oswald"
+            android:textColor="@color/colorOrange"
             />
 
         <TextView
             android:id="@+id/tv_redeem_bp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorSuccess"
+            android:fontFamily="@font/oswald"
+            android:textColor="@color/colorWhiteSub"
             android:layout_marginTop="5dp"
             />
     </LinearLayout>
@@ -40,6 +48,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:inputType="number"
+        android:drawableLeft="@drawable/ic_baseline_credit_card_24"
+        android:drawablePadding="8dp"
+        android:background="@drawable/custom_et"
+        android:textColor="@color/colorWhiteSub"
+        android:textColorHint="@color/colorWhiteSub"
+        android:fontFamily="@font/oswald"
         android:hint="enter points to redeem"
         />
 
@@ -51,13 +65,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your amount will be "/>
+            android:text="Conversion "
+            android:fontFamily="@font/oswald"
+            android:textColor="@color/colorOrange"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="RS."
-            android:textColor="@color/colorSuccess"
+            android:fontFamily="@font/oswald"
+            android:textColor="@color/colorWhiteSub"
             android:textStyle="bold"
             />
 
@@ -65,16 +82,18 @@
             android:id="@+id/tv_redeem_pointConvertedtv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorSuccess"
+            android:fontFamily="@font/oswald"
+            android:textColor="@color/colorWhiteSub"
             android:textStyle="bold"
-            android:text="0"/>
+            android:text=" 0"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text=" /-"
-            android:textColor="@color/colorSuccess"
+            android:fontFamily="@font/oswald"
+            android:textColor="@color/colorWhiteSub"
             />
 
     </LinearLayout>
@@ -84,18 +103,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_baseline_credit_card_24"
+        android:drawablePadding="8dp"
+        android:background="@drawable/custom_et"
+        android:textColor="@color/colorWhiteSub"
+        android:textColorHint="@color/colorWhiteSub"
+        android:fontFamily="@font/oswald"
         android:hint="enter your card number"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="your redeem location"
-        android:layout_marginTop="20dp"/>
+
     <EditText
         android:id="@+id/et_redeem_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/ic_baseline_my_location_24"
+        android:drawablePadding="8dp"
+        android:background="@drawable/custom_et"
+        android:textColor="@color/colorWhiteSub"
+        android:textColorHint="@color/colorWhiteSub"
+        android:fontFamily="@font/oswald"
         android:hint="your current location"
         />
 
@@ -104,10 +132,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Redeem"
-            android:textColor="#fff"
+            android:background="@drawable/custom_rounded_btn"
             android:layout_marginTop="20dp"
-            android:layout_below="@+id/img_ep_profile_Image"
+            android:textColor="@color/white"
+            android:fontFamily="@font/oswald"
             android:textAllCaps="false"
-            android:backgroundTint="@color/btnGreen"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/img_ep_profile_Image"
+            />
 
 </LinearLayout>

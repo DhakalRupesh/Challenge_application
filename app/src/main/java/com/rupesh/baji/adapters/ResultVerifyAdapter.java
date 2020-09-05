@@ -134,6 +134,8 @@ public class ResultVerifyAdapter extends RecyclerView.Adapter<ResultVerifyAdapte
                 args.putString("fname", mmuser.getFname());
                 args.putString("ToVerifychID", result.get_id());
                 args.putString("chType", result.getChType());
+                args.putString("chID", result.get_id());
+
 //                args.putString("verifier");
                 VerifyDialog verifyDialog = new VerifyDialog();
                 verifyDialog.setArguments(args);

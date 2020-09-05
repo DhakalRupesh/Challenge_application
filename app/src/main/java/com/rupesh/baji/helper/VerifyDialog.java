@@ -58,7 +58,9 @@ public class VerifyDialog extends AppCompatDialogFragment {
         String Fname = mArgs.getString("fname");
         String ToVerifychID = mArgs.getString("ToVerifychID");
         String chType = mArgs.getString("chType");
+        String chID = mArgs.getString("chID");
 
+        // verify the challenge
         btn_verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,4 +128,5 @@ public class VerifyDialog extends AppCompatDialogFragment {
 
         return builder.create();
     }
+
 }
