@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:background="@color/colorBg">
+    >
 
 
     <RelativeLayout
@@ -26,18 +27,19 @@
             android:layout_below="@id/img_myprofile_Image"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/oswald"
             android:textSize="19sp"
             android:text="wackyjacky101"
             android:textStyle="bold"
-            android:textColor="#000000" />
+            android:textColor="@color/colorWhiteHeading" />
 
         <TextView
             android:id="@+id/tv_myprofile_game_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="500 BP"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/oswald"
+            android:textColor="@color/colorWhiteSub"
             android:layout_marginTop="5dp"
             android:layout_below="@id/tv_myprofile_username"
             android:layout_centerHorizontal="true"/>
@@ -53,7 +55,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:src="@drawable/profilewavybanner"/>
+                android:src="@drawable/profilewavy"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -78,10 +80,10 @@
                         android:id="@+id/tv_myprofile_fullname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorWhiteSub"
+                        android:fontFamily="@font/oswald"
                         android:layout_marginTop="5dp"
                         android:textSize="17sp"
-                        android:fontFamily="@font/roboto"
                         android:layout_marginLeft="10dp"
                         android:text="My Profile"/>
 
@@ -102,10 +104,10 @@
                         android:id="@+id/tv_myprofile_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorWhiteSub"
+                        android:fontFamily="@font/oswald"
                         android:layout_marginTop="5dp"
                         android:textSize="17sp"
-                        android:fontFamily="@font/roboto"
                         android:layout_marginLeft="10dp"
                         android:text="Email"/>
 
@@ -126,10 +128,10 @@
                         android:id="@+id/tv_myprofile_phone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorWhiteSub"
+                        android:fontFamily="@font/oswald"
                         android:layout_marginTop="5dp"
                         android:textSize="17sp"
-                        android:fontFamily="@font/roboto"
                         android:layout_marginLeft="10dp"
                         android:text="Phone"/>
 
@@ -155,10 +157,10 @@
                     android:id="@+id/tv_myprofile_challenge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorOrange"
+                    android:fontFamily="@font/oswald"
                     android:layout_marginTop="5dp"
                     android:textSize="18sp"
-                    android:fontFamily="@font/roboto"
                     android:layout_marginLeft="10dp"
                     android:text="Challenge"/>
 
@@ -176,11 +178,10 @@
                     android:id="@+id/head_chpalyed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/head_ch"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorOrange"
+                    android:fontFamily="@font/oswald"
                     android:layout_marginTop="5dp"
                     android:textSize="15sp"
-                    android:fontFamily="@font/roboto"
                     android:text="Played"/>
 
                 <TextView
@@ -190,7 +191,8 @@
                     android:layout_marginTop="5dp"
                     android:textSize="14sp"
                     android:layout_below="@+id/head_chpalyed"
-                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/colorWhiteSub"
+                    android:fontFamily="@font/oswald"
                     android:layout_marginLeft="10dp"
                     android:text="100"/>
 
@@ -198,12 +200,11 @@
                     android:id="@+id/head_chWon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorOrange"
+                    android:fontFamily="@font/oswald"
                     android:layout_marginTop="5dp"
-                    android:layout_below="@+id/head_ch"
                     android:layout_toRightOf="@+id/head_chpalyed"
                     android:textSize="15sp"
-                    android:fontFamily="@font/roboto"
                     android:layout_marginLeft="35dp"
                     android:text="Won"/>
 
@@ -215,7 +216,8 @@
                     android:layout_toRightOf="@+id/myprofile_chpalyed_info"
                     android:layout_marginTop="5dp"
                     android:textSize="14sp"
-                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/colorWhiteSub"
+                    android:fontFamily="@font/oswald"
                     android:layout_marginLeft="50dp"
                     android:text="80"/>
 
@@ -223,11 +225,11 @@
                     android:id="@+id/head_chLoss"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorOrange"
+                    android:fontFamily="@font/oswald"
                     android:layout_marginTop="5dp"
                     android:layout_toRightOf="@+id/head_chWon"
                     android:textSize="15sp"
-                    android:fontFamily="@font/roboto"
                     android:layout_marginLeft="35dp"
                     android:text="Loss"/>
 
@@ -239,7 +241,8 @@
                     android:layout_toRightOf="@+id/myprofile_chWon_info"
                     android:layout_marginTop="5dp"
                     android:textSize="14sp"
-                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/colorWhiteSub"
+                    android:fontFamily="@font/oswald"
                     android:layout_marginLeft="50dp"
                     android:text="20"/>
 
