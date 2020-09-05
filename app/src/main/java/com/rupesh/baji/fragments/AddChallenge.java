@@ -16,10 +16,13 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -51,6 +54,7 @@ public class AddChallenge extends Fragment {
     EditText et_ch_type, et_ch_game, et_ch_point, et_ch_date, et_ch_time, et_ch_Description;
     ImageView img_ch_image;
     Button btnAddChallenge;
+    Spinner selectchallenge;
     final Calendar myCalendar = Calendar.getInstance();
     TimePickerDialog mTimePicker;
     int hour = myCalendar.get(Calendar.HOUR_OF_DAY);
@@ -64,12 +68,19 @@ public class AddChallenge extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_challenge, container, false);
 
-        et_ch_type = view.findViewById(R.id.et_challenge_type);
+//        et_ch_type = view.findViewById(R.id.et_challenge_type);
         et_ch_game = view.findViewById(R.id.et_challenge_game);
         et_ch_point = view.findViewById(R.id.et_challenge_point);
         et_ch_date = view.findViewById(R.id.et_challenge_date);
         et_ch_time = view.findViewById(R.id.et_challenge_time);
         et_ch_Description = view.findViewById(R.id.et_challenge_Desc);
+
+        selectchallenge = view.findViewById(R.id.et_challenge_type);
+        ArrayAdapter arrayAdapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.challenge_types,
+                R.layout.spinner_color);
+        arrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        selectchallenge.setAdapter(arrayAdapter);
 
         img_ch_image = view.findViewById(R.id.img_ac_challenge_image);
 
@@ -130,6 +141,7 @@ public class AddChallenge extends Fragment {
                         addNewChallenge();
                     }
                 }
+//                Toast.makeText(getContext(), "type " + selectchallenge.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -197,7 +209,7 @@ public class AddChallenge extends Fragment {
 
     public void addNewChallenge(){
         User ChallengeBy = new User(Bottom_nav.user.get_id());
-        String ChallengeType = et_ch_type.getText().toString().trim();
+        String ChallengeType = selectchallenge.getSelectedItem().toString();
         String ChallengeGame = et_ch_game.getText().toString().trim();
         String ChallengePoint = et_ch_point.getText().toString().trim();
         String ChallengeDate = et_ch_date.getText().toString().trim();
@@ -265,7 +277,7 @@ public class AddChallenge extends Fragment {
     }
 
     private void ClearField() {
-        et_ch_type.setText("");
+//        et_ch_type.setText("");
         et_ch_game.setText("");
         et_ch_point.setText("");
         et_ch_date.setText("");
@@ -274,10 +286,10 @@ public class AddChallenge extends Fragment {
     }
 
     private boolean checkEmpty() {
-        if(et_ch_type.getText().toString().trim().isEmpty()){
-            et_ch_type.setError("this field is required");
-            return false;
-        }
+//        if(et_ch_type.getText().toString().trim().isEmpty()){
+//            et_ch_type.setError("this field is required");
+//            return false;
+//        }
         if(et_ch_point.getText().toString().trim().isEmpty()){
             et_ch_point.setError("this field is required");
             return false;
@@ -299,6 +311,7 @@ public class AddChallenge extends Fragment {
 
     private boolean checkBp(){
         int number  = Integer.parseInt(Bottom_nav.user.getAmt());
+        int divNumber = Integer.parseInt(et_ch_point.getText().toString().trim());
         try {
             if(number < Integer.parseInt(et_ch_point.getText().toString())){
                 et_ch_point.setError("You don't have " + et_ch_point.getText().toString() + " points");
@@ -306,6 +319,11 @@ public class AddChallenge extends Fragment {
                 return false;
             }if(Integer.parseInt(et_ch_point.getText().toString()) == 0) {
                 et_ch_point.setError("You can't enter 0 points");
+                Toast.makeText(getContext(), "You can't enter 0 points", Toast.LENGTH_SHORT).show();
+                return false;
+            }if(divNumber % 5 != 0) {
+                et_ch_point.setError("points should be divisible by 5");
+                Toast.makeText(getContext(), "points should be divisible by 5", Toast.LENGTH_SHORT).show();
                 return false;
             }
         } catch (NumberFormatException ex){
@@ -313,4 +331,5 @@ public class AddChallenge extends Fragment {
         }
         return true;
     }
+
 }

@@ -23,20 +23,28 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-
-                <EditText
+                <Spinner
                     android:id="@+id/et_challenge_type"
+                    android:entries="@array/challenge_types"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:drawableLeft="@drawable/ic_baseline_merge_type_24"
-                    android:drawablePadding="8dp"
-                    android:hint="Challenge Type: eg - 1v1 2v2 tdm..."
-                    android:fontFamily="@font/oswald"
-                    android:textColor="@color/colorWhiteSub"
                     android:background="@drawable/custom_et"
-                    android:textColorHint="@color/colorWhiteSub"
                     />
+
+<!--                <EditText-->
+<!--                    android:id="@+id/et_challenge_type"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:drawableLeft="@drawable/ic_baseline_merge_type_24"-->
+<!--                    android:drawablePadding="8dp"-->
+<!--                    android:hint="Challenge Type: eg - 1v1 2v2 tdm..."-->
+<!--                    android:fontFamily="@font/oswald"-->
+<!--                    android:textColor="@color/colorWhiteSub"-->
+<!--                    android:background="@drawable/custom_et"-->
+<!--                    android:textColorHint="@color/colorWhiteSub"-->
+<!--                    />-->
 
                 <EditText
                     android:id="@+id/et_challenge_game"
