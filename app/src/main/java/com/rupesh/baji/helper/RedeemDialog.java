@@ -22,6 +22,7 @@ import com.rupesh.baji.R;
 import com.rupesh.baji.activities.Bottom_nav;
 import com.rupesh.baji.activities.ProfileEdit;
 import com.rupesh.baji.api.Useri;
+import com.rupesh.baji.model.Challenge;
 import com.rupesh.baji.model.User;
 import com.rupesh.baji.url.Url;
 
@@ -42,14 +43,7 @@ public class RedeemDialog extends AppCompatDialogFragment {
         LayoutInflater layoutInflater = getActivity().getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.redeem_dialog, null);
 
-        builder.setView(view)
-        .setTitle("Redeem using Pay Pal")
-        .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
+        builder.setView(view);
 
         etRedeemPoint = view.findViewById(R.id.etRedeemPoints);
         etCardNumber = view.findViewById(R.id.et_redeem_CardNumber);
@@ -119,12 +113,15 @@ public class RedeemDialog extends AppCompatDialogFragment {
                                         return;
                                     }
                                     Toast.makeText(getContext(), "Successfully redeemed", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getContext(), Bottom_nav.class));
+
                                 }
 
                                 @Override
                                 public void onFailure(Call<User> call, Throwable t) {
                                     Toast.makeText(getContext(), "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                                 }
+
                             });
                         }
                     } catch (NumberFormatException ex) {

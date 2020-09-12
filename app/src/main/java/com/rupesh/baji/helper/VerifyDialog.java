@@ -58,8 +58,36 @@ public class VerifyDialog extends AppCompatDialogFragment {
         String Fname = mArgs.getString("fname");
         String ToVerifychID = mArgs.getString("ToVerifychID");
         String chType = mArgs.getString("chType");
-        String chID = mArgs.getString("chID");
 
+        //get challenge verification image
+        tvVerificationUsr.setText(ToVerifychID);
+
+//        Challengei getSingleChallenge = Url.getInstance().create(Challengei.class);
+//        Call<Challenge> listCallSingle = getSingleChallenge.getOneChallenge(ToVerifychID);
+//
+//        listCallSingle.enqueue(new Callback<Challenge>() {
+//            @Override
+//            public void onResponse(Call<Challenge> call, Response<Challenge> response) {
+//                if(!response.isSuccessful()){
+//                    Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//
+//                String imgPath = Url.imagePath + response.body().getChImage();
+//                ImageView challengeImage = view.findViewById(R.id.img_resverify_image);
+//                try{
+//                    Picasso.get().load(imgPath).into(challengeImage);
+//
+//                }catch (Exception e){
+//                    Picasso.get().load(R.drawable.fortnite).into(challengeImage);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Challenge> call, Throwable t) {
+//                Toast.makeText(getContext(), "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
         // verify the challenge
         btn_verify.setOnClickListener(new View.OnClickListener() {
             @Override

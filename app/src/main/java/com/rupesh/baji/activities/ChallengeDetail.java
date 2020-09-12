@@ -183,7 +183,7 @@ public class ChallengeDetail extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Challenge> call, Throwable t) {
-
+                Toast.makeText(getApplicationContext(), "Error!! " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
