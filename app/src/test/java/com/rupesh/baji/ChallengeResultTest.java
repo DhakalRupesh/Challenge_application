@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class UserLoginTest {
+public class ChallengeResultTest {
     @Test
     public void testLogin() {
         LoginBBL loginTest = new LoginBBL();
