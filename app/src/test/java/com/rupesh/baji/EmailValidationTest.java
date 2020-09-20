@@ -1,6 +1,6 @@
 package com.rupesh.baji;
 
-import com.aryan.cricrazy.activity.RegisterActivity;
+import com.rupesh.baji.activities.Signup;
 
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ public class EmailValidationTest {
 
     @Test
     public void ValidInputTestTrue(){
-        RegisterActivity registerActivity = new RegisterActivity();
+        Signup registerActivity = new Signup();
         boolean result = registerActivity.emailValidation("aryan@gmail.com");
         assertEquals(true, result);
     }

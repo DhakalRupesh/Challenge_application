@@ -193,4 +193,20 @@ public class Signup extends AppCompatActivity {
         }
         return true;
     }
+
+    public boolean emailValidation(String email){
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+        boolean istrue = false;
+        if(email.isEmpty()) {
+            Toast.makeText(getApplicationContext(),"enter email address",Toast.LENGTH_SHORT).show();
+        }else {
+            if (email.trim().matches(emailPattern)) {
+                istrue = true;
+            } else {
+                Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
+            }
+        }
+        return istrue;
+    }
 }

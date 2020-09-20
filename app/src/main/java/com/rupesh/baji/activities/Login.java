@@ -107,4 +107,12 @@ public class Login extends AppCompatActivity {
         }
         return true;
     }
+
+    public Boolean validInput(String email, String password){
+        if(email.trim().equals("") || password.trim().equals("")){
+//            Toast.makeText(this, "Empty input fields!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
 }
