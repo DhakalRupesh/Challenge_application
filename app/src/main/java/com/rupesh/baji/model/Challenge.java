@@ -31,6 +31,18 @@ public class Challenge {
         this.confirmation = confirmation;
     }
 
+    public Challenge(String chType, String chGame, String chAmt, String chDate, String chTime, String chDesc, String chImage, String status, String confirmation) {
+        this.chType = chType;
+        this.chGame = chGame;
+        this.chAmt = chAmt;
+        this.chDate = chDate;
+        this.chTime = chTime;
+        this.chDesc = chDesc;
+        this.chImage = chImage;
+        this.status = status;
+        this.confirmation = confirmation;
+    }
+
     public Challenge(User chAcceptedby, String status) {
         this.chAcceptedby = chAcceptedby;
         this.status = status;
