@@ -11,6 +11,6 @@ public class UserLoginTest {
     public void testLogin() {
         LoginBBL loginTest = new LoginBBL();
         boolean result = loginTest.checkUser("tina55", "tina55");
-        assertEquals(false, result); //
+        assertEquals(true, result); //
     }
 }
